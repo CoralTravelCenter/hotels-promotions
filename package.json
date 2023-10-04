@@ -1,0 +1,25 @@
+{
+  "name": "Акции Отелей",
+  "source": "./src/index.pug",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "dev": "parcel serve --no-source-maps --open --no-cache --port 3000",
+    "build": "parcel build --no-source-maps --no-content-hash --dist-dir=@CMC"
+  },
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.9.3",
+    "cssnano": "^6.0.1",
+    "parcel": "latest",
+    "parcel-plugin-clean-easy": "^1.0.2",
+    "postcss": "^8.4.30",
+    "pug": "^3.0.2"
+  },
+  "parcelCleanPaths": [
+    "dist",
+    "@CMC",
+    ".parcel-cache"
+  ],
+  "dependencies": {
+    "parcel-namer-hashless": "^1.0.5"
+  }
+}

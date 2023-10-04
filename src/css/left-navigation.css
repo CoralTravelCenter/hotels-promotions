@@ -1,0 +1,105 @@
+
+
+.subpage-search-bg>.background:before {
+	display: none;
+}
+
+.bcrumb .breadcrumb-item>a,
+.breadcrumb-item+.breadcrumb-item:before,
+.bcrumb .breadcrumb-item.active {
+	color: #000 !important;
+}
+
+.bcrumb .breadcrumb-item.active:after {
+	background-color: #000 !important;
+}
+
+div.notcritical>div.container div.row:nth-child(2) {
+	display: grid;
+	grid-template-columns: 20% 1fr;
+	column-gap: 3%;
+	margin: 0;
+}
+
+@media(max-width: 768px) {
+	div.notcritical>div.container div.row:nth-child(2) {
+		grid-template-columns: 1fr
+	}
+}
+
+div.notcritical>div.container div.row:nth-child(2) .leftcol {
+	padding: 2em 0 0 0;
+	width: 100%;
+	max-width: unset !important;
+	order: unset !important;
+}
+
+@media(max-width: 768px) {
+	div.notcritical>div.container div.row:nth-child(2) .leftcol {
+		display: none
+	}
+}
+
+div.notcritical>div.container div.row:nth-child(2) .rightcol {
+	padding: 0;
+	width: 100%;
+	max-width: unset !important;
+	order: unset !important;
+}
+
+[data-module="leftSiblingMenu"] {
+	background-color: #fff;
+	border-radius: 12px;
+	flex-direction: column;
+	gap: 8px;
+	margin: 0 !important;
+	padding: 9px 8px 8px;
+	display: flex;
+	font-family: 'museosans', sans-serif;
+}
+
+[data-module="leftSiblingMenu"] label.leftSiblingMenuTitle {
+	margin: 0;
+	padding-inline: 20px;
+	line-height: 1.5;
+	font-size: clamp(16px, 1.7vw, 20px);
+}
+
+[data-module="leftSiblingMenu"] ul.leftSiblingMenu {
+	flex-direction: column;
+	gap: 8px;
+	margin: 0;
+	display: flex;
+}
+
+[data-module="leftSiblingMenu"] ul.leftSiblingMenu .minus:before,
+[data-module="leftSiblingMenu"] ul.leftSiblingMenu div.slide:before {
+	display: none;
+}
+
+[data-module="leftSiblingMenu"] ul.leftSiblingMenu li {
+	padding: 0;
+}
+
+[data-module="leftSiblingMenu"] ul.leftSiblingMenu li a {
+	width: 100%;
+	border-radius: 8px;
+	padding: 9px 24px;
+	font-size: 14px;
+	line-height: 1.5;
+	transition: all .3s ease;
+}
+
+[data-module="leftSiblingMenu"] ul.leftSiblingMenu li a:hover {
+	color: rgba(0, 147, 208, 1);
+}
+
+[data-module="leftSiblingMenu"] li.selected span {
+	width: 100%;
+	background: #e6f4ff !important;
+	border-radius: 8px;
+	padding: 9px 24px !important;
+	font-size: 14px;
+	color: rgba(0, 147, 208, 1) !important;
+	line-height: 1.5;
+}

@@ -1,0 +1,18 @@
+@import url('./css/fonts');
+@import url('./css/left-navigation');
+@import url('./css/navigation');
+@import url('./css/content');
+@import url('./css/custom-modal');
+
+.contentLayout-BaseContainer .notcritical .container {
+	margin-top: 0 !important;
+}
+
+.contentLayout-BaseContainer .notcritical {
+	padding-top: 0 !important;
+}
+
+.contentLayout-BaseContainer .notcritical.sticky {
+	padding-top: 60px !important;
+}
+

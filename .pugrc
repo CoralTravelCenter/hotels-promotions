@@ -1,0 +1,185 @@
+{
+	locals: {
+		regions: {
+			egipt: {
+				name: "Египет",
+				hotels: [
+					{
+						visual: "./assets/baron-palace-resort-sahl-hasheesh.jpg",
+						rating: 5,
+						hotel_name: "BARON PALACE RESORT SAHL HASHEESH",
+						location: "Хургада (Hurghada), Сал Хашиш (Salh Hasheesh)",
+						description: "Бесплатное проживание для двоих детей до 15 лет включительно в номере с двумя родителями.",
+						booking: "До 20 декабря",
+						accommodation: "До 20 декабря",
+						fly_from: "Все",
+						promotion_end: '30.09.2023'
+					},
+					{
+						visual: "./assets/bzya-regina-resort-aqua-park.jpg",
+						rating: 4,
+						hotel_name: "BZYA REGINA RESORT & AQUA PARK",
+						location: "Хургада (Hurghada), Даунтаун (Хургада)",
+						description: "Бесплатное повышение категории номера и полный мини-бар без алкогольных напитков. Предоставляется 1 бесплатная стирка — 5 предметов одежды за весь период проживания. Два бесплатных ужина…",
+						booking: "До 15 сентября",
+						accommodation: "До 31 октября",
+						fly_from: "Все"
+					}
+				]
+			},
+			tyrkey: {
+				name: "Турция",
+				hotels: [
+					{
+						visual: "./assets/cosmopolitan.jpg",
+						rating: 5,
+						hotel_name: "NIRVANA COSMOPOLITAN",
+						location: "Анталья (Antalya), Лара (Lara)",
+						description: "1 бесплатное посещение мероприятия или шоу. Например: ANDY, SOUND OF COSMOS, CIS CONCERT или концерт звёзд российской эстрады в театре COSMOS THEATRE.",
+						booking: "До 15 августа",
+						accommodation: "До 31 октября",
+						fly_from: "Все"
+					},
+				]
+			},
+			uae: {
+				name: "ОАЭ",
+				hotels: [
+					{
+						visual: "./assets/taj-exotica.jpg",
+						rating: 5,
+						hotel_name: "TAJ EXOTICA RESORT & SPA, THE PALM, DUBAI",
+						location: "Джумейра, Пальм Джумейра",
+						description: "Бесплатное повышение типа питания с «Завтрак» (BB) до «Полупансиона» (HB).",
+						booking: "До 31 октября",
+						accommodation: "До 31 октября",
+						fly_from: "Все"
+					},
+					{
+						visual: "./assets/mariot.jpg",
+						rating: 5,
+						hotel_name: "MARRIOTT RESORT PALM JUMEIRAH",
+						location: "Джумейра (Jumeira), Пальм Джумейра (Palm Jumeirah)",
+						description: "Бесплатное проживание для двоих детей с 3 до 11 лет включительно в номере с родителями. Дополнительная кровать не предоставляется. Повышение типа питания до «Все Включено», независимо от типа питания родителей.",
+						booking: "До 31 октября",
+						accommodation: "До 31 октября",
+						fly_from: "Все"
+					},
+					{
+						visual: "./assets/dubai-marina.jpg",
+						rating: 4,
+						hotel_name: "WYNDHAM DUBAI MARINA",
+						location: "Джумейра (Jumeira), Пальм Джумейра (Palm Jumeirah)",
+						description: "Бесплатное проживание для двоих детей с 3 до 11 лет включительно в номере с родителями. Дополнительная кровать не предоставляется. Повышение типа питания до «Все Включено», независимо от типа питания родителей.",
+						booking: "До 31 октября",
+						accommodation: "До 31 октября",
+						fly_from: "Все"
+					},
+					{
+						visual: "./assets/palm-atlantis.jpg",
+						rating: 5,
+						hotel_name: "ATLANTIS, THE PALM",
+						location: "Джумейра, Пальм Джумейра",
+						description: "До 30 сентября дети до 13 лет включительно проживают и питаются бесплатно. Акция действует для любой категории номеров при бронировании типов питания: «Завтрак» и «Полупансион».",
+						booking: "Все новые бронирования",
+						accommodation: "Все",
+						fly_from: "Все"
+					},
+					{
+						visual: "./assets/palm-residents.jpg",
+						rating: 5,
+						hotel_name: "WYNDHAM RESIDENCES THE PALM APART DELUXE",
+						location: "Джумейра, Пальм Джумейра",
+						description: "Детям предоставляется бесплатное проживание в номере с родителями. Тип питания родителей распространяется на детей.",
+						booking: "До 30 сентября",
+						accommodation: "До 30 сентября",
+						fly_from: "Все"
+					},
+				]
+			},
+			bahrein: {
+				name: "Бахрейн",
+				hotels: [
+					{
+						visual: "./assets/manama.jpg",
+						rating: 4,
+						hotel_name: "IBIS SEEF MANAMA",
+						location: "Сиф (Seef)",
+						description: "Ночь в подарок! Забронируйте 6 ночей, а заплатите за 5.",
+						booking: "До 30 сентября",
+						accommodation: "До 30 сентября",
+						fly_from: "Все"
+					},
+					{
+						visual: "./assets/manama-diplomatic.jpg",
+						rating: 4,
+						hotel_name: "IBIS STYLES MANAMA DIPLOMATIC AREA",
+						location: "Манама (Manama)",
+						description: "Ночь в подарок! Забронируйте 6 ночей, а заплатите за 5.",
+						booking: "До 15 сентября",
+						accommodation: "До 31 октября",
+						fly_from: "Все"
+					},
+				]
+			},
+			vietnam: {
+				name: "Вьетнам",
+				hotels: [
+					{
+						visual: "./assets/resort-spa.jpg",
+						rating: 5,
+						hotel_name: "VINPEARL RESORT & SPA PHU QUOC",
+						location: "Фукуок (Phu Quoc), Дай Бич (Dai Beach)",
+						description: "Ночи в подарок! При бронировании 7 ночей в отеле — вы платите за 6. А при бронировании 10 ночей в отеле —две ночи в подарок!",
+						booking: "До 30 ноября",
+						accommodation: "До 30 ноября",
+						fly_from: "Все"
+					},
+					{
+						visual: "./assets/wonderworld.jpg",
+						rating: 5,
+						hotel_name: "VINPEARL WONDERWORLD PHU QUOC",
+						location: "Фукуок (Phu Quoc), Дай Бич (Dai Beach)",
+						description: "Ночи в подарок! При бронировании 7 ночей в отеле — вы платите за 6. А при бронировании 10 ночей в отеле —две ночи в подарок!",
+						booking: "До 30 ноября",
+						accommodation: "До 30 ноября",
+						fly_from: "Все"
+					},
+				]
+			},
+			tunis: {
+				name: "Тунис",
+				hotels: [
+					{
+						visual: "./assets/otium-park.jpg",
+						rating: 4,
+						hotel_name: "OTIUM PARK HOTEL LE PETIT PALAIS",
+						location: "Джерба (Djerba)",
+						description: "Одно бесплатное посещение сауны (хамама) в подарок и скидку 20% на все процедуры в спа.",
+						booking: "Все новые бронирования",
+						accommodation: "До 31 октября",
+						fly_from: "Все"
+					},
+				]
+			},
+			kipr: {
+				name: "Кипр",
+				hotels: [
+					{
+						visual: "./assets/cap.jpg",
+						rating: 5,
+						hotel_name: "CAP ST GEORGES HOTEL & RESORT",
+						location: "Пафос (Paphos), Пейя (Peyia)",
+						description: "Скидка 20% на проживание и бесплатное повышение категории номера при бронировании от 5 ночей.",
+						booking: "До 31 октября",
+						accommodation: "До 31 октября",
+						fly_from: "Все"
+					},
+				]
+			},
+		}
+	}
+}
+
+
+

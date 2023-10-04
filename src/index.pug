@@ -1,0 +1,24 @@
+include ./mixins/block-generator.pug
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Шаблон Акции Отелей
+		link(rel="stylesheet", href="./style.css")
+	body
+		section.hotel-promotions
+			article
+				div.contenu
+					div.navigation
+						h4 Акции отелей
+						ul.navigation-list(data-snap-slider)
+							+navigation-generator(locals.regions)
+						.navigation__btns(data-snap-slider-nav)
+							button.navigation__btn.navigation__btn--left(data-snap-slider-prev)
+							button.navigation__btn.navigation__btn--right(data-snap-slider-next)
+					div.promotions
+						+promotion-generator(locals.regions)
+		script(src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js")
+		script(src="./index.js", type="module") 
