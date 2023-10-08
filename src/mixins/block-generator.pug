@@ -5,7 +5,7 @@ mixin navigation-generator(data)
 				button(class=(index === 0 ? 'js-active': undefined) data-location=val.name)=val.name
 
 mixin promotion-generator(data)
-	- let arr = data;s
+	- let arr = data;
 		each val in arr
 			ul.promotions-list(data-name=val.name)
 				h4=val.name
@@ -54,5 +54,14 @@ mixin promotion-generator(data)
 										span.info__date=val.fly_from
 										div.actions
 								div.actions
-									button(data-toggle='modal' data-target='#exampleModalCenter') подробнее
+									button(data-toggle="modal" data-target="#promotion-modal") подробнее
 									a(href='#') ВЫБРАТЬ ТУР
+
+mixin modal-generator()
+	template(id='template') 
+		#promotion-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+			.modal-dialog.modal-dialog-centered(role='document')
+				.modal-content
+					.modal-header
+					.modal-body
+					

@@ -68,6 +68,10 @@ section.hotel-promotions>article .rating__item {
 	height: 16px;
 }
 
+section.hotel-promotions>article .rating__item svg {
+	display: block;
+}
+
 section.hotel-promotions>article .content {
 	flex-direction: column;
 	display: flex;
@@ -124,6 +128,10 @@ section.hotel-promotions>article .content .wrapper .info__item {
 	align-content: center;
 	column-gap: 7px;
 	display: grid;
+}
+
+section.hotel-promotions>article .content .wrapper .info__item svg {
+	display: block;
 }
 
 @media(max-width: 425px) {

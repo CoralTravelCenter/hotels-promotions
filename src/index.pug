@@ -6,6 +6,7 @@ html(lang="en")
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		title Шаблон Акции Отелей
+		link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css")
 		link(rel="stylesheet", href="./style.css")
 	body
 		section.hotel-promotions
@@ -20,5 +21,7 @@ html(lang="en")
 							button.navigation__btn.navigation__btn--right(data-snap-slider-next)
 					div.promotions
 						+promotion-generator(locals.regions)
-		script(src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js")
+			+modal-generator()
+		script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
+		script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js") 
 		script(src="./index.js", type="module") 
