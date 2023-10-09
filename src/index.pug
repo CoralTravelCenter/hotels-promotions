@@ -1,27 +1,19 @@
 include ./mixins/block-generator.pug
 
-doctype html
-html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title Шаблон Акции Отелей
-		link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css")
-		link(rel="stylesheet", href="./style.css")
-	body
-		section.hotel-promotions
-			article
-				div.contenu
-					div.navigation
-						h4 Акции отелей
-						ul.navigation-list(data-snap-slider)
-							+navigation-generator(locals.regions)
-						.navigation__btns(data-snap-slider-nav)
-							button.navigation__btn.navigation__btn--left(data-snap-slider-prev)
-							button.navigation__btn.navigation__btn--right(data-snap-slider-next)
-					div.promotions
-						+promotion-generator(locals.regions)
-			+modal-generator()
-		script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
-		script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js") 
-		script(src="./index.js", type="module") 
+section.hotel-promotions
+	aside
+	nav
+		div.navigation
+			h4 Акции отелей
+			ul.navigation-list(data-snap-slider)
+				+navigation-generator(locals.regions)
+			.navigation__btns(data-snap-slider-nav)
+				button.navigation__btn.navigation__btn--left(data-snap-slider-prev)
+				button.navigation__btn.navigation__btn--right(data-snap-slider-next)  
+	article
+		div.promotions
+			+promotion-generator(locals.regions)
+	+modal-generator()
+//- script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
+//- script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js") 
+//- script(src="./index.js", type="module") 

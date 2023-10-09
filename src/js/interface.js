@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+	$('[data-module="leftSiblingMenu"]').detach().prependTo('aside');
+	 
 	const slides = [...document.querySelectorAll('.navigation-list__item')];
 	const nextBtn = document.querySelector('[data-snap-slider-next]');
 	const prevBtn = document.querySelector('[data-snap-slider-prev]');
@@ -49,16 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		`;
 		clone.querySelector('.modal-header').insertAdjacentHTML('afterbegin', html);
 
-		place = document.querySelector('.promotions');
+		place = document.querySelector('body');
 		place.append(clone);
 	}
 
 	function modalToggler() {
 		const myModal = document.querySelector('#promotion-modal');
 		if (myModal !== null) {
-			new bootstrap.Modal(myModal, {
-				keyboard: true,
-			});
+			$('#promotion-modal').modal({keyboard: true});
 			$("#promotion-modal").on('hidden.bs.modal', () => {
 				myModal.remove();
 			});

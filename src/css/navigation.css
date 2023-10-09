@@ -1,28 +1,40 @@
-section.hotel-promotions {
+section.hotel-promotions > nav {
+	font-family: 'museosans', sans-serif;
+	position: sticky;
+	top: 10em;
+	grid-area: Nav;
+	z-index: 2;
+}
+
+section.hotel-promotions > nav::after {
+	content: "";
+	background: #f1f7fc;
+	width: 100%;
+	height: 30px;
+	position: absolute;
+	top: -21px;
+	left: 0;
+	display: block;
+}
+
+section.hotel-promotions h4 {
+	color: #0093d0;
+	font-size: 20px;
 	font-family: 'museosans', sans-serif;
 }
 
-section.hotel-promotions>article .contenu {
-	padding-top: 2em;
-}
-
-section.hotel-promotions>article h4 {
-	color: #0093d0;
-	font-size: 20px;
-}
-
-section.hotel-promotions>article .promotions h4 {
+section.hotel-promotions>nav .promotions h4 {
 	padding-left: 12px;
 	margin: 0;
 }
 
-section.hotel-promotions>article a:focus,
-section.hotel-promotions>article button:focus {
+section.hotel-promotions>nav a:focus,
+section.hotel-promotions>nav button:focus {
 	cursor: pointer;
 	outline: none;
 }
 
-section.hotel-promotions>article .navigation {
+section.hotel-promotions>nav .navigation {
 	width: 100%;
 	z-index: 2;
 	grid-row-gap: 1em;
@@ -36,7 +48,7 @@ section.hotel-promotions>article .navigation {
 	box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
 }
 
-section.hotel-promotions>article .navigation-list {
+section.hotel-promotions>nav .navigation-list {
 	grid-row: 2/3;
 	align-self: center;
 	gap: 1em;
@@ -48,20 +60,20 @@ section.hotel-promotions>article .navigation-list {
 	scroll-snap-type: x proximity;
 }
 
-section.hotel-promotions>article .navigation-list::-webkit-scrollbar {
+section.hotel-promotions>nav .navigation-list::-webkit-scrollbar {
 	display: none;
 }
 
-section.hotel-promotions>article .promotions::-webkit-scrollbar {
+section.hotel-promotions>nav .promotions::-webkit-scrollbar {
 	display: none;
 }
 
 
-section.hotel-promotions>article .navigation-list__item {
+section.hotel-promotions>nav .navigation-list__item {
 	scroll-snap-align: start;
 }
 
-section.hotel-promotions>article .navigation-list__item button {
+section.hotel-promotions>nav .navigation-list__item button {
 	display: block;
 	color: #000;
 	background-color: #fff;
@@ -75,16 +87,16 @@ section.hotel-promotions>article .navigation-list__item button {
 	cursor: pointer;
 }
 
-section.hotel-promotions>article .navigation-list__item button:hover {
+section.hotel-promotions>nav .navigation-list__item button:hover {
 	color: rgba(0, 147, 208, 1);
 }
 
-section.hotel-promotions>article .navigation-list__item button.js-active {
+section.hotel-promotions>nav .navigation-list__item button.js-active {
 	color: #fff;
 	background-color: #0093d0;
 }
 
-section.hotel-promotions>article .navigation__btns {
+section.hotel-promotions>nav .navigation__btns {
 	grid-area: 2/2/3/3;
 	display: flex;
 	align-items: center;
@@ -93,12 +105,12 @@ section.hotel-promotions>article .navigation__btns {
 }
 
 @media (max-width: 768px) {
-	section.hotel-promotions>article .navigation__btns {
+	section.hotel-promotions>nav .navigation__btns {
 		display: none;
 	}
 }
 
-section.hotel-promotions>article .navigation__btn {
+section.hotel-promotions>nav .navigation__btn {
 	width: 40px;
 	height: 40px;
 	border: 1px solid rgba(0, 0, 0, 0.15);
@@ -108,7 +120,7 @@ section.hotel-promotions>article .navigation__btn {
 	box-shadow: 0 2px rgba(0, 0, 0, 0.02);
 }
 
-section.hotel-promotions>article .navigation__btn--left {
+section.hotel-promotions>nav .navigation__btn--left {
 	background-color: #fff;
 	background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.666 5.833 7.5 10l4.166 4.167' stroke='%23535353' stroke-linejoin='round'/%3E%3C/svg%3E"),
 		none;
@@ -120,7 +132,7 @@ section.hotel-promotions>article .navigation__btn--left {
 	background-clip: border-box, border-box;
 }
 
-section.hotel-promotions>article .navigation__btn--right {
+section.hotel-promotions>nav .navigation__btn--right {
 	background-color: #fff;
 	background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5 5.833 11.667 10 7.5 14.167' stroke='%23535353' stroke-linejoin='round'/%3E%3C/svg%3E"),
 		none;

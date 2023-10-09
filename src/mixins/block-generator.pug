@@ -54,14 +54,20 @@ mixin promotion-generator(data)
 										span.info__date=val.fly_from
 										div.actions
 								div.actions
-									button(data-toggle="modal" data-target="#promotion-modal") подробнее
+									button(data-toggle="modal") подробнее
 									a(href='#') ВЫБРАТЬ ТУР
 
 mixin modal-generator()
 	template(id='template') 
-		#promotion-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
-			.modal-dialog.modal-dialog-centered(role='document')
+		#promotion-modal.modal.custom-modal.fade.show(tabindex='-1' aria-labelledby='exampleModalCenterTitle' aria-modal='true' role='dialog')
+			.modal-dialog.modal-dialog-centered
 				.modal-content
+					button.close.custom-close(type='button' data-dismiss='modal' aria-label='Close')
+						svg(width='24' height='24' viewbox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+							g(clip-path='url(#a)')
+								path(fill-rule='evenodd' clip-rule='evenodd' d='M6.229 6.227a.75.75 0 0 1 1.06 0l4.713 4.712 4.712-4.712a.75.75 0 0 1 1.061 1.06L13.063 12l4.712 4.712a.75.75 0 0 1-1.06 1.061l-4.713-4.712-4.712 4.712a.75.75 0 1 1-1.061-1.06L10.941 12 6.23 7.288a.75.75 0 0 1 0-1.061Z' fill='#535353')
+							defs
+								clippath#a
+									path(fill='#fff' d='M.002 0h24v24h-24z')
 					.modal-header
 					.modal-body
-					
