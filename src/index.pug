@@ -1,19 +1,25 @@
 include ./mixins/block-generator.pug
-
+link(rel="stylesheet", href="style.css")
 section.hotel-promotions
 	aside
 	nav
 		div.navigation
-			h4 Акции отелей
+			input#link-drop(class="visually-hidden", type="checkbox", name="dropdown")
+			label.dropdown-label(for="link-drop")
+				h4 Акции отелей
+				.icon
+					svg(width='32' height='32' viewbox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg')
+						path(fill-rule='evenodd' clip-rule='evenodd' d='M7.293 11.293a1 1 0 0 1 1.414 0L16 18.586l7.293-7.293a1 1 0 0 1 1.414 1.414l-8 8a1 1 0 0 1-1.414 0l-8-8a1 1 0 0 1 0-1.414Z' fill='#535353')
 			ul.navigation-list(data-snap-slider)
 				+navigation-generator(locals.regions)
 			.navigation__btns(data-snap-slider-nav)
 				button.navigation__btn.navigation__btn--left(data-snap-slider-prev)
-				button.navigation__btn.navigation__btn--right(data-snap-slider-next)  
+				button.navigation__btn.navigation__btn--right(data-snap-slider-next)
 	article
 		div.promotions
 			+promotion-generator(locals.regions)
 	+modal-generator()
+	+dropdown-generator()
 //- script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
 //- script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js") 
 //- script(src="./index.js", type="module") 

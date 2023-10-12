@@ -1,7 +1,7 @@
 {
 	locals: {
-		regions: {
-			egipt: {
+		regions: [
+			{
 				name: "Египет",
 				hotels: [
 					{
@@ -27,7 +27,7 @@
 					}
 				]
 			},
-			tyrkey: {
+			{
 				name: "Турция",
 				hotels: [
 					{
@@ -42,7 +42,7 @@
 					},
 				]
 			},
-			uae: {
+			{
 				name: "ОАЭ",
 				hotels: [
 					{
@@ -97,7 +97,7 @@
 					},
 				]
 			},
-			bahrein: {
+			{
 				name: "Бахрейн",
 				hotels: [
 					{
@@ -122,7 +122,7 @@
 					},
 				]
 			},
-			vietnam: {
+			{
 				name: "Вьетнам",
 				hotels: [
 					{
@@ -147,7 +147,7 @@
 					},
 				]
 			},
-			tunis: {
+			{
 				name: "Тунис",
 				hotels: [
 					{
@@ -162,7 +162,7 @@
 					},
 				]
 			},
-			kipr: {
+			{
 				name: "Кипр",
 				hotels: [
 					{
@@ -177,7 +177,7 @@
 					},
 				]
 			},
-		}
+		]
 	}
 }
 

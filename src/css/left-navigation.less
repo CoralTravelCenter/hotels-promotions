@@ -28,22 +28,29 @@ div.notcritical>div.container div.row:nth-child(2) .rightcol {
 
 [data-module="leftSiblingMenu"] {
 	background-color: #fff;
-	border-radius: 12px;
 	flex-direction: column;
 	gap: 8px;
 	margin: 0 !important;
-	padding: 9px 8px 8px;
+	padding: 1em 8px 8px;
 	display: flex;
 	font-family: 'museosans', sans-serif;
 	position: sticky;
 	top: 10em;
+	border-radius: 12px;
+	@media (max-width: 1024px) {
+		border-radius: 0;
+	}
 }
 
 [data-module="leftSiblingMenu"] label.leftSiblingMenuTitle {
+	color: #000;
+	font-size: 18px;
+	line-height: 1.2;
+	padding-left: 24px;
 	margin: 0;
-	padding-inline: 20px;
-	line-height: 1.5;
-	font-size: clamp(16px, 1.7vw, 20px);
+	@media (max-width: 1024px) {
+		display: none;
+	}
 }
 
 [data-module="leftSiblingMenu"] ul.leftSiblingMenu {
@@ -69,6 +76,7 @@ div.notcritical>div.container div.row:nth-child(2) .rightcol {
 	font-size: 14px;
 	line-height: 1.5;
 	transition: all .3s ease;
+	color: #000;
 }
 
 [data-module="leftSiblingMenu"] ul.leftSiblingMenu li a:hover {

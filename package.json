@@ -7,6 +7,7 @@
     "build": "parcel build --no-source-maps --no-content-hash --dist-dir=@CMC"
   },
   "devDependencies": {
+    "@parcel/transformer-less": "^2.9.3",
     "@parcel/transformer-pug": "^2.9.3",
     "cssnano": "^6.0.1",
     "parcel": "latest",

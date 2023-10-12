@@ -19,7 +19,7 @@ section.hotel-promotions > nav::after {
 
 section.hotel-promotions h4 {
 	color: #0093d0;
-	font-size: 20px;
+	font-size: 18px;
 	font-family: 'museosans', sans-serif;
 }
 
@@ -42,22 +42,82 @@ section.hotel-promotions>nav .navigation {
 	background-color: #fff;
 	border-radius: 1em;
 	grid-template-columns: 1fr max-content;
-	padding: 1em;
+	padding-bottom: 1em;
 	display: grid;
 	position: relative;
-	box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -8px;
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
+
+	>label {
+		padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: span 2;
+    margin: 0;
+		border-top-right-radius: 1em;
+		border-top-left-radius: 1em;
+		@media (max-width: 1024px) {
+			box-shadow: inset 0 18px 56px 16px #5a5a5a0d;
+		}
+
+		.icon {
+			transform: rotate(180deg);
+			transition: transform .3s ease;
+		}
+
+		h4 {
+			margin-bottom: 0;
+		}
+
+		.icon {
+			width: 32px;
+			height: 32px;
+			cursor: pointer;
+			display: none;
+			@media (max-width: 1024px) {
+				display: block;
+			}
+		}
+	}
+
+	.dropdown {
+		position: absolute;
+		top: 56px;
+		right: 0;
+		box-shadow: rgba(99, 99, 99, 0) 0px 2px 8px 0px;
+		border-bottom-left-radius: 12px;
+		border-bottom-right-radius: 12px;
+		opacity: 0;
+		grid-template-rows: 0fr;
+		transition: all .3s .1s;
+		display: grid;
+
+		.dropdown__content {
+			transition: all .3s;
+    	overflow: hidden;
+			border-bottom-left-radius: 12px;
+			border-bottom-right-radius: 12px;
+		}
+	}
+}
+
+section.hotel-promotions>nav .navigation-list-wrapper {
+	grid-row: 2/3;
+	align-self: center;
+	padding-inline: 1em;
 }
 
 section.hotel-promotions>nav .navigation-list {
-	grid-row: 2/3;
-	align-self: center;
 	gap: 1em;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 1em;
 	list-style: none;
 	display: flex;
 	overflow: auto;
-	scroll-snap-type: x proximity;
+	scroll-snap-type: x mandatory;
 }
 
 section.hotel-promotions>nav .navigation-list::-webkit-scrollbar {
@@ -70,7 +130,9 @@ section.hotel-promotions>nav .promotions::-webkit-scrollbar {
 
 
 section.hotel-promotions>nav .navigation-list__item {
-	scroll-snap-align: start;
+	scroll-snap-align: center;
+	display: flex;
+	align-items: center;
 }
 
 section.hotel-promotions>nav .navigation-list__item button {
@@ -79,7 +141,7 @@ section.hotel-promotions>nav .navigation-list__item button {
 	background-color: #fff;
 	border-radius: 24px;
 	font-size: 14px;
-	padding: 0.9em 1.8em;
+	padding: 0.5em 2em;
 	font-weight: 400;
 	text-decoration: none;
 	transition: all 0.3s;
@@ -102,6 +164,7 @@ section.hotel-promotions>nav .navigation__btns {
 	align-items: center;
 	gap: 4px;
 	align-self: center;
+	margin-right: 1em;
 }
 
 @media (max-width: 768px) {
@@ -118,7 +181,13 @@ section.hotel-promotions>nav .navigation__btn {
 	margin: 0;
 	padding: 0;
 	box-shadow: 0 2px rgba(0, 0, 0, 0.02);
-}
+	cursor: pointer;
+	transition: transform .3s ease;
+
+	&:active {
+		transform: translateY(3px);
+	}
+}	
 
 section.hotel-promotions>nav .navigation__btn--left {
 	background-color: #fff;
@@ -142,4 +211,14 @@ section.hotel-promotions>nav .navigation__btn--right {
 	background-attachment: scroll, scroll;
 	background-origin: padding-box, padding-box;
 	background-clip: border-box, border-box;
+}
+
+#link-drop:checked ~ .dropdown {
+	opacity: 1;
+  grid-template-rows: 1fr;
+	box-shadow: rgba(33, 35, 38, 0.1) -10px 10px 10px -10px;
+}
+
+#link-drop:checked ~ .dropdown-label .icon {
+	transform: rotate(0deg);
 }
