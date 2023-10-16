@@ -1,17 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const WIDJET = document.querySelector('[data-module="leftSiblingMenu"]');
-	const rightCol = document.querySelector('.rightcol');
-	WIDJET.insertAdjacentHTML('beforebegin', css);
-	rightCol.innerHTML = html;
-
-	const slider = document.querySelector('[data-snap-slider]')
+	const slider = document.querySelector('[data-snap-slider]');
 	const slides = [...document.querySelectorAll('.navigation-list__item')];
 	const nextBtn = document.querySelector('[data-snap-slider-next]');
 	const prevBtn = document.querySelector('[data-snap-slider-prev]');
 	const locations = [...document.querySelectorAll('[data-location]')];
 	const navigation = document.querySelector('.navigation-list');
 	const promotions = document.querySelector('.promotions');
-
 
 	// Добавляем кнопки в навигацию когда появляется горизонтальный скролл
 	function addNavigationButtons() {
@@ -24,8 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 	addNavigationButtons();
-	window.addEventListener('resize', _.throttle(addNavigationButtons, 1000))
+	window.addEventListener('resize', _.throttle(addNavigationButtons, 1000));
 
+	// Клик по next
 	nextBtn.addEventListener('click', () => {
 		slides[slides.length - 1].scrollIntoView({
 			behavior: 'smooth',
@@ -33,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			block: "nearest"
 		});
 	});
+
+	// Клик по prev
 	prevBtn.addEventListener('click', () => {
 		slides[0].scrollIntoView({
 			behavior: 'smooth',
@@ -41,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 
-	// Навигация
+	// Навигация по регионам
 	function navScroller(e) {
 		if (e.target.hasAttribute('data-location')) {
 			const dataAttr = e.target.getAttribute('data-location');
@@ -50,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			$([document.documentElement, document.body]).animate({
 				scrollTop: _.floor($(`[data-name=${dataAttr}]`).offset().top) - (navHeight + browHeight + 150)
 			}, 300);
+			locations.forEach(element => element.classList.remove('js-active'));
+			e.target.classList.add('js-active');
 		}
 	}
 	navigation.addEventListener('click', navScroller);
@@ -126,37 +125,21 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	// Генерируем Dropdown на 1024px
-	const mobileWidthMediaQuery = window.matchMedia('(max-width: 1024px)')
+	const mobileWidthMediaQuery = window.matchMedia('(max-width: 1024px)');
 	const dropDownTemplate = document.querySelector('#dropdown').content.cloneNode(true);
-	const place = document.querySelector('.hotel-promotions .navigation');
-	place.append(dropDownTemplate);
+	const dropdownPlace = document.querySelector('.hotel-promotions .navigation');
+	dropdownPlace.append(dropDownTemplate);
 
 	function mobile(isMobileSize) {
 		if (!isMobileSize) {
 			$('[data-module="leftSiblingMenu"]').detach().prependTo('.hotel-promotions aside');
 		} else {
-			$('[data-module="leftSiblingMenu"]').detach().prependTo('.hotel-promotions .navigation .dropdown .dropdown__content')
+			$('[data-module="leftSiblingMenu"]').detach().prependTo('.hotel-promotions .navigation .dropdown .dropdown__content');
 		}
 	}
 
-	mobile(mobileWidthMediaQuery.matches)
-	mobileWidthMediaQuery.addEventListener('change', (e) => { mobile(e.matches) })
-
-	// Сраный обзервер
-	// const callback = (entries) => {
-	// 	entries.forEach((entry) => {
-	// 		if (entry.isIntersecting) {
-	// 			console.log(entry.target);
-	// 			locations.forEach(element => element.classList.remove('js-active'));
-	// 			document.querySelector(`[data-location="${entry.target.getAttribute('data-name')}"]`).classList.add('js-active')
-	// 		}
-	// 	})
-	// }
-	// const LISTS = document.querySelectorAll('.promotions-list')
-	// const observer = new IntersectionObserver(callback, {
-	// 	root: document.querySelector('.hotel-promotions'),
-	// 	rootMargin: '-100px',
-	// 	threshold: 0.7
-	// })
-	// LISTS.forEach((el) => observer.observe(el))
+	mobile(mobileWidthMediaQuery.matches);
+	mobileWidthMediaQuery.addEventListener('change', (e) => {
+		mobile(e.matches);
+	});
 });
