@@ -12,6 +12,14 @@
 	--white: #ffffff;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+.notcritical .container .row {
+	display: none;
+}
+
 .contentLayout-BaseContainer .notcritical .container {
 	margin-top: 0 !important;
 }

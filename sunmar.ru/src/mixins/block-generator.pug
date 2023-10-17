@@ -1,17 +1,9 @@
-mixin navigation-generator(data)
-	h3 Акции от отелей
-	ul.navigation-list
-		each val in data
-			li.navigation-list__item=val.name
-	
-
-
 mixin promotion-generator(data)
 		each val in data
-			ul.promotions-list(data-name=val.name)
+			ul.promotions-list(id=val.name)
 				.promotion-list__poster
 					h2 Акции от отелей 
-						strong #{val.declination_name}
+						strong=val.declination_name
 					p=val.slogan 
 				- let hotels = val.hotels
 				each val in hotels 
@@ -67,4 +59,5 @@ mixin promotion-generator(data)
 										span.info__date=val.fly_from
 										div.actions
 								div.actions
-									a(href='#') ВЫБРАТЬ ТУР
+									a(href='#') Выбрать тур
+									p=val.condition

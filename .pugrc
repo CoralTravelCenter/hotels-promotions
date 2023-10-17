@@ -5,7 +5,7 @@
 				name: "Египет",
 				hotels: [
 					{
-						visual: "./assets/baron-palace-resort-sahl-hasheesh.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 5,
 						hotel_name: "BARON PALACE RESORT SAHL HASHEESH",
 						location: "Хургада (Hurghada), Сал Хашиш (Salh Hasheesh)",
@@ -17,7 +17,7 @@
 						promotion_end: '30.09.2023'
 					},
 					{
-						visual: "./assets/bzya-regina-resort-aqua-park.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 4,
 						hotel_name: "BZYA REGINA RESORT & AQUA PARK",
 						location: "Хургада (Hurghada), Даунтаун (Хургада)",
@@ -34,7 +34,7 @@
 				name: "Турция",
 				hotels: [
 					{
-						visual: "./assets/cosmopolitan.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 5,
 						hotel_name: "NIRVANA COSMOPOLITAN",
 						location: "Анталья (Antalya), Лара (Lara)",
@@ -51,7 +51,7 @@
 				name: "ОАЭ",
 				hotels: [
 					{
-						visual: "./assets/taj-exotica.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 5,
 						hotel_name: "TAJ EXOTICA RESORT & SPA, THE PALM, DUBAI",
 						location: "Джумейра, Пальм Джумейра",
@@ -63,7 +63,7 @@
 						promotion_end: '30.09.2023'
 					},
 					{
-						visual: "./assets/mariot.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 5,
 						hotel_name: "MARRIOTT RESORT PALM JUMEIRAH",
 						location: "Джумейра (Jumeira), Пальм Джумейра (Palm Jumeirah)",
@@ -75,7 +75,7 @@
 						promotion_end: '30.09.2023'
 					},
 					{
-						visual: "./assets/dubai-marina.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 4,
 						hotel_name: "WYNDHAM DUBAI MARINA",
 						location: "Джумейра (Jumeira), Пальм Джумейра (Palm Jumeirah)",
@@ -87,7 +87,7 @@
 						promotion_end: '30.09.2023'
 					},
 					{
-						visual: "./assets/palm-atlantis.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 5,
 						hotel_name: "ATLANTIS, THE PALM",
 						location: "Джумейра, Пальм Джумейра",
@@ -99,7 +99,7 @@
 						promotion_end: '30.09.2023'
 					},
 					{
-						visual: "./assets/palm-residents.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 5,
 						hotel_name: "WYNDHAM RESIDENCES THE PALM APART DELUXE",
 						location: "Джумейра, Пальм Джумейра",
@@ -116,7 +116,7 @@
 				name: "Бахрейн",
 				hotels: [
 					{
-						visual: "./assets/manama.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 4,
 						hotel_name: "IBIS SEEF MANAMA",
 						location: "Сиф (Seef)",
@@ -128,7 +128,7 @@
 						promotion_end: '30.09.2023'
 					},
 					{
-						visual: "./assets/manama-diplomatic.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 4,
 						hotel_name: "IBIS STYLES MANAMA DIPLOMATIC AREA",
 						location: "Манама (Manama)",
@@ -145,7 +145,7 @@
 				name: "Вьетнам",
 				hotels: [
 					{
-						visual: "./assets/resort-spa.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 5,
 						hotel_name: "VINPEARL RESORT & SPA PHU QUOC",
 						location: "Фукуок (Phu Quoc), Дай Бич (Dai Beach)",
@@ -174,7 +174,7 @@
 				name: "Тунис",
 				hotels: [
 					{
-						visual: "./assets/otium-park.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 4,
 						hotel_name: "OTIUM PARK HOTEL LE PETIT PALAIS",
 						location: "Джерба (Djerba)",
@@ -191,7 +191,7 @@
 				name: "Кипр",
 				hotels: [
 					{
-						visual: "./assets/cap.jpg",
+						visual: "./assets/wonderworld.jpg",
 						rating: 5,
 						hotel_name: "CAP ST GEORGES HOTEL & RESORT",
 						location: "Пафос (Paphos), Пейя (Peyia)",
