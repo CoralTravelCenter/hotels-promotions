@@ -3,9 +3,9 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "coral-dev": "parcel coral.ru/src/index.pug --no-source-maps --open --port 3000",
-    "coral-build": "parcel build coral.ru/src/index.pug --no-source-maps --no-cache --dist-dir=@CMC/coral",
+    "coral-build": "parcel build coral.ru/src/index.pug --no-source-maps --no-content-hash --no-cache --dist-dir=@CMC",
     "sunmar-dev": "parcel sunmar.ru/src/index.pug --no-source-maps --open --port 3000",
-    "sunmar-build": "parcel build sunmar.ru/src/index.pug --no-source-maps --no-cache --dist-dir=@CMC/sunmar"
+    "sunmar-build": "parcel build sunmar.ru/src/index.pug --no-source-maps --no-content-hash --no-cache --dist-dir=@CMC"
   },
   "devDependencies": {
     "@parcel/transformer-less": "^2.9.3",

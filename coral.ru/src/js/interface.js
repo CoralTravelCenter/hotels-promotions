@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+export const Interface = () => {
 	const slider = document.querySelector('[data-snap-slider]');
 	const slides = [...document.querySelectorAll('.navigation-list__item')];
 	const nextBtn = document.querySelector('[data-snap-slider-next]');
@@ -142,4 +142,4 @@ document.addEventListener("DOMContentLoaded", () => {
 	mobileWidthMediaQuery.addEventListener('change', (e) => {
 		mobile(e.matches);
 	});
-});
+};	

@@ -1,2 +1,5 @@
-import './js/interface';
-import './js/logical';
+import { Interface } from './js/interface';
+import { promotionExpired } from './js/logical';
+
+Interface();
+promotionExpired();
