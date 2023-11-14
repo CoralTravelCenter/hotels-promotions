@@ -62,11 +62,11 @@ div.notcritical>div.container div.row:nth-child(2) .rightcol {
 	margin: 0 !important
 }
 
-@media (max-width:1024px) {
+/* @media (max-width:1024px) {
 	[data-module=leftSiblingMenu] {
 		border-radius: 0
 	}
-}
+} */
 
 [data-module=leftSiblingMenu] label.leftSiblingMenuTitle {
 	color: #000;
@@ -76,11 +76,11 @@ div.notcritical>div.container div.row:nth-child(2) .rightcol {
 	line-height: 1.2
 }
 
-@media (max-width:1024px) {
+/* @media (max-width:1024px) {
 	[data-module=leftSiblingMenu] label.leftSiblingMenuTitle {
 		display: none
 	}
-}
+} */
 
 [data-module=leftSiblingMenu] ul.leftSiblingMenu {
 	flex-direction: column;
@@ -189,11 +189,11 @@ section.hotel-promotions>nav .navigation>label {
 	display: flex
 }
 
-@media (max-width:1024px) {
+/* @media (max-width:1024px) {
 	section.hotel-promotions>nav .navigation>label {
 		box-shadow: inset 0 18px 56px 16px #5a5a5a0d
 	}
-}
+} */
 
 section.hotel-promotions>nav .navigation>label .icon {
 	transition: transform .3s;
@@ -211,11 +211,11 @@ section.hotel-promotions>nav .navigation>label .icon {
 	display: none
 }
 
-@media (max-width:1024px) {
+/* @media (max-width:1024px) {
 	section.hotel-promotions>nav .navigation>label .icon {
 		display: block
 	}
-}
+} */
 
 section.hotel-promotions>nav .navigation .dropdown {
 	opacity: 0;
@@ -354,8 +354,9 @@ section.hotel-promotions>nav .navigation__btn--right {
 }
 
 section.hotel-promotions {
-	grid-column-gap: 2em;
-	grid-template-columns: 25% 1fr;
+	/* grid-column-gap: 2em;
+	grid-template-columns: 25% 1fr; */
+	grid-template-columns: 0 1fr;
 	grid-template-areas: "Aside Nav" "Aside Content";
 	align-content: start;
 	padding-inline: 8px;
@@ -363,12 +364,12 @@ section.hotel-promotions {
 	position: relative
 }
 
-@media (max-width:1024px) {
+/* @media (max-width:1024px) {
 	section.hotel-promotions {
 		grid-template-columns: 1fr;
 		gap: 0
 	}
-}
+} */
 
 @media (max-width:1006px) {
 	section.hotel-promotions {
@@ -380,11 +381,11 @@ section.hotel-promotions {
 	}
 }
 
-@media (max-width:1024px) {
+/* @media (max-width:1024px) {
 	section.hotel-promotions aside>.widgetcontainer {
 		display: none
 	}
-}
+} */
 
 @media (max-width:1006px) {
 	section.hotel-promotions nav {
@@ -430,7 +431,8 @@ section.hotel-promotions>article .promotions-list {
 }
 
 section.hotel-promotions>article .promotions-list h4 {
-	padding-left: .6em
+	padding-left: .6em;
+	margin-block: .3em;
 }
 
 section.hotel-promotions>article .promotions-list__item {
@@ -455,7 +457,7 @@ section.hotel-promotions>article .promotions-list__item .picture>img {
 	display: block;
 	object-fit: cover;
 	border-radius: 6px;
-	max-width: 100%;
+	width: 100%;
 	height: 100%;
 }
 
@@ -468,9 +470,9 @@ section.hotel-promotions>article .promotions-list__item .picture>img {
 section.hotel-promotions>article .rating {
 	gap: 6px;
 	margin: 0 0 8px;
-	padding: 0;
+	padding: 0 !important;
 	list-style: none;
-	display: flex
+	display: flex;
 }
 
 section.hotel-promotions>article .rating__item {
@@ -547,7 +549,7 @@ section.hotel-promotions>article .content .wrapper {
 
 section.hotel-promotions>article .content .wrapper .info {
 	gap: 12px;
-	padding: 0;
+	padding: 0 !important;
 	list-style: none;
 	display: flex;
 	width: 100%;
@@ -674,7 +676,7 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 }
 
 .custom-modal {
-	--close-btn-size: 48px;
+	--close-btn-size: min(10vw, 40px);
 	font-family: museosans, sans-serif
 }
 
@@ -686,7 +688,8 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 
 .custom-modal .modal-body {
 	padding-inline: 0;
-	padding-bottom: 0
+	padding-bottom: 0;
+	font-size: 14px;
 }
 
 .custom-modal .modal-body p {
@@ -698,14 +701,42 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 	padding-left: 16px
 }
 
+.custom-modal .modal-body [data-description] p {
+	margin-bottom: 0.5em;
+}
+
+.custom-modal .modal-body [data-description] .description-list,
+.custom-modal .modal-body [data-conditions] ul {
+	padding-left: 25px;
+	color: #000;
+}
+
+.custom-modal .modal-body [data-conditions] ul li {
+	font-size: 14px;
+	color: #000;
+}
+
+.custom-modal .modal-body [data-conditions] h6 {
+	font-weight: 600;
+	font-size: 16px;
+}
+
 .custom-modal .modal-dialog {
 	margin-inline: auto;
 	width: 80% !important;
-	max-width: 828px !important
+	max-width: 828px !important;
+	margin-block: .5rem;
+}
+@media (max-width: 375px) {
+	.custom-modal .modal-dialog {
+		margin-block: 4vh;
+	}
 }
 
 .custom-modal .modal-atention p {
-	color: #000
+	color: #000;
+	font-size: 14px;
+	font-weight: 600;
 }
 
 .custom-modal .modal-header {
@@ -730,7 +761,7 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 	border-top: 1px solid #0000000f;
 	border-bottom: 1px solid #0000000f;
 	flex-wrap: wrap;
-	gap: 24px 36px;
+	gap: min(1vh, 24px) min(5%, 36px);
 	margin: 0;
 	padding-block: 10px;
 	padding-inline: 0;
@@ -782,8 +813,13 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 	justify-content: center;
 	align-items: center;
 	display: flex;
+	opacity: 1;
 	position: absolute;
 	box-shadow: 0 2px 4px #00000005, 0 1px 6px -1px #00000005, 0 1px 2px #00000008
+}
+
+.custom-modal .modal-content .custom-close:hover {
+	opacity: 1;
 }
 
 .custom-modal .modal-content .custom-close:focus {
@@ -794,7 +830,7 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 	box-shadow: unset;
 	border: none;
 	border-radius: 24px;
-	padding: 24px;
+	padding: min(5%, 24px);
 	position: relative
 }
 
@@ -847,7 +883,11 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 	overflow: hidden
 }
 
-section.hotel-promotions>nav .navigation,
-section.hotel-promotions>nav::after {
+.oti-content-typography ul li:before,
+.oti-content-typography ul li:after {
+	display: none;
+}
+
+h1 {
 	display: none;
 }
