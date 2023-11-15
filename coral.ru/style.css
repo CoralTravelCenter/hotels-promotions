@@ -544,7 +544,7 @@ section.hotel-promotions>article .content .wrapper {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-	gap: 6px;
+	gap: 8px;
 	margin-top: auto;
 	display: flex
 }
@@ -561,7 +561,6 @@ section.hotel-promotions>article .content .wrapper .info {
 	padding: 0 !important;
 	list-style: none;
 	display: flex;
-	width: 100%;
 }
 
 section.hotel-promotions>article .content .wrapper .info__item {
