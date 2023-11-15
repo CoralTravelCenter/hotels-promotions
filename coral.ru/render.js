@@ -128,14 +128,14 @@ function modalGenerator(target) {
 	});
 }
 
-function enable() {
+function disableScroll() {
 	scrollPosition = window.pageYOffset;
 	document.body.style.overflow = 'hidden';
 	document.body.style.position = 'fixed';
 	document.body.style.top = `-${scrollPosition}px`;
 	document.body.style.width = '100%';
 }
-function disable() {
+function enableScroll() {
 	document.body.style.removeProperty('overflow');
 	document.body.style.removeProperty('position');
 	document.body.style.removeProperty('top');
@@ -150,10 +150,16 @@ promotions.addEventListener('click', (e) => {
 		modalGenerator(target);
 		if (document.querySelector('#promotion-modal')) {
 			$('#promotion-modal').modal({ keyboard: true });
-			$('#promotion-modal').on('shown.bs.modal', () => disable());
+			$('#promotion-modal').on('shown.bs.modal', () => {
+				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+					disableScroll();
+				}
+			});
 			$('#promotion-modal').on('hidden.bs.modal', () => {
 				$('#promotion-modal').remove();
-				enable();
+				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+					enableScroll();
+				}
 			});
 		}
 	}
