@@ -110,7 +110,7 @@ const PROMOTION_SETTINGS = [
 	},
 ];
 
-
+import { enable, disable } from "scroll-lock";
 const navigation_template = document.querySelector('#navigation-template').content;
 const country_template = document.querySelector('#country-template').content;
 const modal_template = document.querySelector('#modal-template').content;
@@ -254,8 +254,10 @@ promotions.addEventListener('click', (e) => {
 		modalGenerator(target);
 		if (document.querySelector('#promotion-modal')) {
 			$('#promotion-modal').modal({ keyboard: true });
+			$('#promotion-modal').on('shown.bs.modal', () => disable());
 			$('#promotion-modal').on('hidden.bs.modal', () => {
 				$('#promotion-modal').remove();
+				enable();
 			});
 		}
 	}

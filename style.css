@@ -423,8 +423,7 @@ section.hotel-promotions>article .promotions-list {
 	flex-direction: column;
 	gap: .8em;
 	margin: 0;
-	padding-left: 6px;
-	padding-right: 6px;
+	padding-inline: 6px !important;
 	font-family: museosans, sans-serif;
 	list-style: none;
 	display: flex
@@ -727,11 +726,6 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 	max-width: 828px !important;
 	margin-block: .5rem;
 }
-@media (max-width: 375px) {
-	.custom-modal .modal-dialog {
-		margin-block: 4vh;
-	}
-}
 
 .custom-modal .modal-atention p {
 	color: #000;
@@ -890,4 +884,18 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 
 h1 {
 	display: none;
+}
+
+@media (max-width: 590px) {
+	section.hotel-promotions {
+		padding-inline: 0;
+	}
+
+	section.hotel-promotions nav {
+		top: 6.5em;
+	}
+
+	.custom-modal .modal-dialog {
+		margin-block: 4vh;
+	}
 }
