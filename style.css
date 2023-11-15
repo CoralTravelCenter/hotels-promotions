@@ -22,6 +22,15 @@
 	src: url(https://font.static.useinsider.com/coraltravel/museosanscyrl-300-webfont.ttf)
 }
 
+:root {
+	--scroll-padding-top: 400px;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--scroll-padding-top);
+}
+
 section.hotel-promotions aside {
 	grid-area: Aside
 }
@@ -423,14 +432,14 @@ section.hotel-promotions>article .promotions-list {
 	flex-direction: column;
 	gap: .8em;
 	margin: 0;
-	padding-inline: 6px !important;
+	padding-inline: 8px !important;
 	font-family: museosans, sans-serif;
 	list-style: none;
 	display: flex
 }
 
 section.hotel-promotions>article .promotions-list h4 {
-	padding-left: .6em;
+	padding-left: 8px;
 	margin-block: .3em;
 }
 
@@ -443,7 +452,8 @@ section.hotel-promotions>article .promotions-list__item {
 	min-height: 183px;
 	padding: 6px;
 	display: grid;
-	box-shadow: 0 3px 12px #0000000d
+	box-shadow: 0 3px 12px #0000000d;
+	min-height: 230px;
 }
 
 @media (max-width:768px) {
@@ -535,7 +545,7 @@ section.hotel-promotions>article .content .wrapper {
 	justify-content: space-between;
 	align-items: center;
 	gap: 6px;
-	margin-top: 6px;
+	margin-top: auto;
 	display: flex
 }
 
