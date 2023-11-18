@@ -19,11 +19,11 @@ const PROMOTION_SETTINGS = [
 					"Не распространяется на групповые заявки от 15 человек",
 					"Стоимость туров в поиске тура обозначена с учетом акции"
 				],
-				booking: "31.05.2024",
-				accommodation: "31.05.2024",
+				booking: "с 12.09.2023 по 31.05.2024",
+				accommodation: "с 01.10.2023 по 31.05.2024*",
 				departure_from: "Все",
-				url: "https://www.coral.ru/hotels/united-arab-emirates/the-first-collection-jumeirah-village-circle-dubai/",
-				promotion_end: ''
+				promotion_end: '31.05.2024',
+				depth_days: 14
 			}
 		]
 	},
@@ -32,12 +32,95 @@ const PROMOTION_SETTINGS = [
 		hotels: [
 			{
 				hotel_id: 2,
+				visual: "https://content.coral.ru//resize/800x600/media/image/12/28415/637184181184862254.jpg",
+				rating: 5,
+				hotel_name: "ROYAL REGENCY CLUB",
+				location: "Шарм-эш-Шейх (Sharm El Sheikh), Набк Бей (Nabq Bay)",
+				description: {
+					text: "Акция от отеля «Черная Пятница»:",
+					list: [
+						"Корзина с фруктами и мини-бар (безалкогольные напитки) - 1 раз за весь период проживания",
+						"Ранняя регистрация заезда (при наличии возможности в отеле)",
+						"Поздняя регистрация отъезда (при наличии возможности в отеле)",
+						"Неограниченный доступ в Восточный, Рыбный и Итальянский рестораны а ля карт (по предварительному заказу)",
+						"Скидка 25% на СПА-услуги",
+						"Cкидка 25% на услуги прачечной."
+					]
+				},
+				conditions: [
+					"Акция распространяется на бронирование полных пакетных туров.",
+					"Акция не распространяется на кроме мастера нестандартного тура и групповые туры от 15 человек.",
+					"Стоимость туров в поиске тура отображается с учетом акции."
+				],
+				booking: "с 15.11.2023 по 24.11.2023",
+				accommodation: "с 15.11.2023 по 30.04.2024",
+				departure_from: "Все",
+				promotion_end: '24.11.2023',
+				depth_days: 14
+			},
+			{
+				hotel_id: 3,
+				visual: "https://content.coral.ru//resize/800x600/media/image/12/36111/637643882370313850.JPG",
+				rating: 5,
+				hotel_name: "ROMANCE REGENCY CLUB ADULTS ONLY",
+				location: "Шарм-эш-Шейх (Sharm El Sheikh), Набк Бей (Nabq Bay)",
+				description: {
+					text: "Акция от отеля «Черная Пятница»:",
+					list: [
+						"Корзина с фруктами и мини-бар (безалкогольные напитки) - 1 раз за весь период проживания",
+						"Ранняя регистрация заезда (при наличии возможности в отеле)",
+						"Поздняя регистрация отъезда (при наличии возможности в отеле)",
+						"Неограниченный доступ в Восточный, Рыбный и Итальянский рестораны а ля карт (по предварительному заказу)",
+						"Скидка 25% на СПА-услуги",
+						"1 профессиональная фотография от фотографа отеля (по предварительной договоренности)",
+						"Cкидка 25% на услуги прачечной."
+					]
+				},
+				conditions: [
+					"Акция распространяется на бронирование полных пакетных туров.",
+					"Акция не распространяется на кроме мастера нестандартного тура и групповые туры от 15 человек.",
+					"Стоимость туров в поиске тура отображается с учетом акции."
+				],
+				booking: "с 15.11.2023 по 24.11.2023",
+				accommodation: "с 15.11.2023 по 30.04.2024",
+				departure_from: "Все",
+				promotion_end: '24.11.2023',
+				depth_days: 14
+			},
+			{
+				hotel_id: 4,
+				visual: "https://content.coral.ru//resize/800x600/media/image/12/3916/637630015618741281.jpg",
+				rating: 5,
+				hotel_name: "REGENCY PLAZA AQUA PARK & SPA RESORT",
+				location: "Шарм-эш-Шейх (Sharm El Sheikh), Набк Бей (Nabq Bay)",
+				description: {
+					text: "Акция от отеля «Черная Пятница»:",
+					list: [
+						"Раннее заселение (при наличии возможности в отеле)",
+						"Неограниченный доступ в Восточный, Рыбный и Итальянский рестораны а ля карт (по предварительному заказу)",
+						"Скидка 25% на СПА-услуги",
+						"15% скидка на услуги прачечной"
+					]
+				},
+				conditions: [
+					"Акция распространяется на бронирование полных пакетных туров.",
+					"Акция не распространяется на кроме мастера нестандартного тура и групповые туры от 15 человек.",
+					"Стоимость туров в поиске тура отображается с учетом акции."
+				],
+				booking: "с 15.11.2023 по 24.11.2023",
+				accommodation: "с 15.11.2023 по 30.04.2024",
+				departure_from: "Все",
+				promotion_end: '24.11.2023',
+				depth_days: 14
+			},
+			{
+				hotel_id: 5,
 				visual: "https://content.coral.ru//resize/800x600/media/image/12/9270/636751320657246517.jpg",
 				rating: 5,
 				hotel_name: "BARON PALACE RESORT SAHL HASHEESH",
 				location: "Хургада (Hurghada), Сал Хашиш (Salh Hasheesh)",
 				description: {
-					text: "Отдыхай с детьми - плати только за взрослых, двое детей до 14,99 лет – бесплатно!",
+					text: "Отдыхай с детьми - плати только за взрослых, двое детей до 14 лет (включительно) – бесплатно!",
 					list: []
 				},
 				conditions: [
@@ -45,14 +128,14 @@ const PROMOTION_SETTINGS = [
 					"Акция не распространяется на кроме мастера нестандартного тура и групповые туры от 15 человек.",
 					"Стоимость туров в поиске тура отображается с учетом акции."
 				],
-				booking: "20.12.2023",
-				accommodation: "20.12.2023",
+				booking: "с 10.08.2023 до 20.12.2023",
+				accommodation: "с 10.08.2023 до 20.12.2023",
 				departure_from: "Все",
-				url: "https://www.coral.ru/hotels/egypt/baron-palace-resort-sahl-hasheesh-hurghada/",
-				promotion_end: ''
+				promotion_end: '20.12.2023',
+				depth_days: 14
 			},
 			{
-				hotel_id: 3,
+				hotel_id: 6,
 				visual: "https://content.coral.ru//resize/800x600/media/image/12/8871/637795739711641789.jpg",
 				rating: 5,
 				hotel_name: "MOVENPICK WATERPARK RESORT & SPA SOMA BAY",
@@ -74,11 +157,11 @@ const PROMOTION_SETTINGS = [
 					"Особые условия: Пакет СЕМЕЙНЫЙ 2+2=2 (тип номера Deluxe rooms, возраст детей до 11,99)",
 					"Особые условия: пакет СПА-услуг (для всех типов номеров, на все резервации c 17.10.23)"
 				],
-				booking: "17.10.23",
-				accommodation: "17.10.23",
+				booking: "с 17.10.23",
+				accommodation: "с 17.10.23",
 				departure_from: "Все",
-				url: "https://www.coral.ru/hotels/egypt/movenpick-waterpark-resort-spa-soma-bay-hurghada/",
-				promotion_end: ''
+				promotion_end: '',
+				depth_days: 14
 			}
 		]
 	},
@@ -86,7 +169,7 @@ const PROMOTION_SETTINGS = [
 		name: "Таиланд",
 		hotels: [
 			{
-				hotel_id: 4,
+				hotel_id: 7,
 				visual: "https://content.coral.ru//resize/800x600/media/image/33/2262/637720711089614767.jpg",
 				rating: 5,
 				hotel_name: "CENTARA RESERVE SAMUI (ex.CENTARA GRAND BEACH RESORT SAMUI)",
@@ -100,12 +183,63 @@ const PROMOTION_SETTINGS = [
 					"Акция не распространяется на забронированные через Мастера нестандартного тура, и на групповые туры от 15 человек",
 					"Стоимость туров в поиске тура обозначена с учетом акции"
 				],
-				booking: "31.12.2023",
-				accommodation: "30.06.2024",
+				booking: "с 09.11.2023 по 31.12.2023",
+				accommodation: "с 09.11.2023 по 30.06.2024*",
 				departure_from: "Все",
-				url: "https://www.coral.ru/hotels/thailand/centara-reserve-samui-ex-centara-grand-beach-resort-samui-koh-samui/",
-				promotion_end: ''
+				promotion_end: '31.12.2023',
+				depth_days: 14
 			}
 		]
 	},
+	{
+		name: "Вьетнам",
+		hotels: [
+			{
+				hotel_id: 8,
+				visual: "https://content.coral.ru//resize/800x600/media/image/41/11814/636578436124558507.jpg",
+				rating: 5,
+				hotel_name: "VINPEARL RESORT & SPA PHU QUOC",
+				location: "Фукуок (Phu Quoc), Дай Бич (Dai Beach)",
+				description: {
+					text: "Бронируй больше-плати меньше! Отдых 7 ночей по цене 6 или Отдых 10 ночей по цене 8!",
+					list: []
+				},
+				conditions: [
+					"Действительны для всех новых резерваций с 05.10.2022 по 30.11.2023",
+					"Все типы номеров",
+					"Акция распространяется на бронирование полных пакетных туров в режиме онлайн, кроме туров, забронированных в «Мастере нестандартного тура»",
+					"Акция не распространяется на групповые туры более 15 человек",
+					"Стоимость туров в поиске тура обозначена с учетом акции"
+				],
+				booking: "с 05.10.2022 по 30.11.2023",
+				accommodation: "с 01.11.2022 по 30.11.2023",
+				departure_from: "Все",
+				promotion_end: '30.11.2023',
+				depth_days: 14
+			},
+			{
+				hotel_id: 9,
+				visual: "https://content.coral.ru//resize/800x600/media/image/41/23786/636579228966823319.jpg",
+				rating: 5,
+				hotel_name: "VINPEARL WONDERWORLD PHU QUOC",
+				location: "Фукуок (Phu Quoc), Дай Бич (Dai Beach)",
+				description: {
+					text: "Бронируй больше-плати меньше! Отдых 7 ночей по цене 6 или Отдых 10 ночей по цене 8!",
+					list: []
+				},
+				conditions: [
+					"Действительны для всех новых резерваций с 05.10.2022 по 30.11.2023",
+					"Все типы номеров",
+					"Акция распространяется на бронирование полных пакетных туров в режиме онлайн, кроме туров, забронированных в «Мастере нестандартного тура»",
+					"Акция не распространяется на групповые туры более 15 человек",
+					"Стоимость туров в поиске тура обозначена с учетом акции"
+				],
+				booking: "с 05.10.2022 по 30.11.2023",
+				accommodation: "с 01.11.2022 по 30.11.2023",
+				departure_from: "Все",
+				promotion_end: '30.11.2023',
+				depth_days: 14
+			}
+		]
+	}
 ];

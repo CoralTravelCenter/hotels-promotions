@@ -449,11 +449,9 @@ section.hotel-promotions>article .promotions-list__item {
 	border-radius: 12px;
 	grid-template-columns: 25% 1fr;
 	gap: 16px;
-	min-height: 183px;
 	padding: 6px;
 	display: grid;
 	box-shadow: 0 3px 12px #0000000d;
-	min-height: 230px;
 }
 
 @media (max-width:768px) {
@@ -467,7 +465,6 @@ section.hotel-promotions>article .promotions-list__item .picture>img {
 	object-fit: cover;
 	border-radius: 6px;
 	width: 100%;
-	height: 100%;
 }
 
 @media (max-width:768px) {
@@ -523,6 +520,10 @@ section.hotel-promotions>article .content .location {
 	}
 }
 
+section.hotel-promotions>article .content .description {
+	margin-block: auto;
+}
+
 section.hotel-promotions>article .content .description>p {
 	color: #000;
 	-ms-text-overflow: ellipsis;
@@ -545,8 +546,9 @@ section.hotel-promotions>article .content .wrapper {
 	justify-content: space-between;
 	align-items: center;
 	gap: 8px;
-	margin-top: auto;
-	display: flex
+	margin-top: 6px;
+	display: flex;
+	width: 100%;
 }
 
 @media (max-width:768px) {
@@ -573,8 +575,8 @@ section.hotel-promotions>article .content .wrapper .info__item {
 section.hotel-promotions>article .content .wrapper .info__item .icon {
 	grid-row: span 2;
 	align-self: center;
-	width: clamp(38px, 3vw, 48px);
-	height: clamp(38px, 3vw, 48px)
+	width: 38px;
+	height: 38px;
 }
 
 section.hotel-promotions>article .content .wrapper .info__item svg {
@@ -628,7 +630,8 @@ section.hotel-promotions>article .content .wrapper .info__item .info__date {
 
 section.hotel-promotions>article .promotions-list__item .actions {
 	column-gap: 12px;
-	display: flex
+	display: flex;
+	margin-top: auto;
 }
 
 @media (max-width:768px) {

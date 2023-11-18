@@ -46,11 +46,7 @@ function cardRender(country_name, hotel) {
 		data_accommodation.textContent = el.accommodation;
 		data_departure_from.textContent = el.departure_from;
 		description.innerHTML = `<p>${el.description.text}</p>`;
-		if (el.description.text.length > 140) {
-			actions.innerHTML = `<a href="${el.url}">ВЫБРАТЬ ТУР</a> <button data-toggle="modal" data-target='promotion-modal'>подробнее</button>`;
-		} else {
-			actions.innerHTML = `<a href="${el.url}">ВЫБРАТЬ ТУР</a>`;
-		}
+		actions.innerHTML = `<a data-lookup-destination="${el.hotel_name}" data-lookup-depth-days="${el.depth_days}">ВЫБРАТЬ ТУР</a> <button data-toggle="modal" data-target='promotion-modal'>подробнее</button>`;
 		const markup = card_template.cloneNode(true);
 		document.querySelector(`[data-name="${country_name}"]`).append(markup);
 	});
