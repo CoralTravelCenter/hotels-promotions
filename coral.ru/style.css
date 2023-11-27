@@ -730,7 +730,7 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 
 .custom-modal .modal-header .rating {
 	gap: 6px;
-	margin: 0;
+	margin: 0 0 6px 0;
 	padding: 0;
 	list-style: none;
 	display: flex
@@ -914,13 +914,13 @@ h1 {
 @media (max-width: 1024px) {
 	section.hotel-promotions {
 		grid-template-areas:
-		"Nav Nav"
-		"Content Content";
+			"Nav Nav"
+			"Content Content";
 	}
 
 	section.hotel-promotions>nav .navigation {
 		display: grid;
-    grid-template-columns: 1fr min-content;
+		grid-template-columns: 1fr min-content;
 		box-shadow: 0 3px 12px #0000000d;
 		gap: 0;
 	}
@@ -944,12 +944,12 @@ h1 {
 
 	section.hotel-promotions>nav .navigation-list__item button.js-active {
 		color: #ffffff;
-    background-color: #0093D0;
+		background-color: #0093D0;
 	}
 
 	section.hotel-promotions>article {
 		padding-top: 1.5em;
-    margin-top: -0.8em;
+		margin-top: -0.8em;
 	}
 
 	section.hotel-promotions>article .promotions-list__item .picture>img {
@@ -959,15 +959,15 @@ h1 {
 
 	[data-target="promotion-modal"] {
 		transition: all 0.3s ease;
-    background: transparent;
-    color: #000000;
-    border: 1px solid #000000;
-    width: 100%;
-    text-transform: uppercase;
-    border-radius: 8px;
-    padding: 0 1.5em;
-    font-size: 13px;
-    height: 2.6em;
+		background: transparent;
+		color: #000000;
+		border: 1px solid #000000;
+		width: 100%;
+		text-transform: uppercase;
+		border-radius: 8px;
+		padding: 0 1.5em;
+		font-size: 13px;
+		height: 2.6em;
 	}
 
 	[data-target="promotion-modal"]:hover {
@@ -977,36 +977,53 @@ h1 {
 	}
 }
 
+.rating__item > svg{
+	display: block;
+}
+
 @media (max-width: 576px) {
 	.custom-modal .modal-dialog {
 		width: auto !important;
 		max-width: unset !important;
 		margin: 0 !important;
 		transform: translate(0, 100%) !important;
-		height: 400px;
-	}
-
-	.modal.show .modal-dialog {
-		transform: translate(0,0) !important;
-	}
-
-	.custom-modal .modal-content {
-		padding-top: 48px;
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+		background-color: #fff;
 		position: relative;
 	}
 
-	.custom-modal .modal-content::before {
+	.scroll-container {
+		height: 550px;
+		padding-top: 24px;
+		overflow-y: scroll;
+		border-top-right-radius: 12px;
+		border-top-left-radius: 12px;
+	}
+
+	.modal.show .modal-dialog {
+		transform: translate(0, 0) !important;
+	}
+
+	.custom-modal .modal-content {
+		padding-top: 18px;
+		border-radius: 0;
+	}
+
+	.custom-modal .modal-dialog::after {
 		content: '';
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: #1a9ed5;
-    border-radius: 4px;
+		position: absolute;
+		top: 13px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 80px;
+		height: 4px;
+		background: #0093D0;
+		border-radius: 4px;
+	}
+
+	.custom-modal .modal-dialog::before {
+		display: none;
 	}
 
 	.custom-modal .modal-content .custom-close {

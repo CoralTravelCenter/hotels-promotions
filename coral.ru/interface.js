@@ -11,20 +11,45 @@ const b_crumb = document.querySelector('.bcrumb').clientHeight;
 let scrollPosition = 0;
 
 /*Блокировка скрола на iOS*/
-function enable() {
+function disableScroll() {
 	scrollPosition = window.pageYOffset;
 	document.body.style.overflow = 'hidden';
 	document.body.style.position = 'fixed';
 	document.body.style.top = `-${scrollPosition}px`;
 	document.body.style.width = '100%';
 }
-function disable() {
+function enableScroll() {
 	document.body.style.removeProperty('overflow');
 	document.body.style.removeProperty('position');
 	document.body.style.removeProperty('top');
 	document.body.style.removeProperty('width');
 	window.scrollTo(0, scrollPosition);
 }
+
+const promotions = document.querySelector('section.hotel-promotions .promotions');
+promotions.childNodes.forEach(node => {
+	if (node.nodeType === 3) node.remove();
+});
+promotions.addEventListener('click', (e) => {
+	let target = e.target;
+	if (target.hasAttribute('data-target') && target.getAttribute('data-target') === 'promotion-modal') {
+		modalGenerator(target);
+		if (document.querySelector('#promotion-modal')) {
+			$('#promotion-modal').modal({ keyboard: true });
+			$('#promotion-modal').on('shown.bs.modal', () => {
+				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+					/*disableScroll();*/
+				}
+			});
+			$('#promotion-modal').on('hidden.bs.modal', () => {
+				$('#promotion-modal').remove();
+				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+					/*enableScroll();*/
+				}
+			});
+		}
+	}
+});
 
 /*Добавляем кнопки в навигацию когда появляется горизонтальный скролл*/
 function addNavigationButtons() {
@@ -65,20 +90,20 @@ function navScroller(e) {
 }
 navigation.addEventListener('click', navScroller);
 
-/*Mutation Observer*/
+/*Mutation Observer
 const items = document.querySelectorAll(".navigation-list__item");
-const mutation = new MutationObserver(function(mutations) {
-  console.log(`Сработал наблюдатель`);
-  for (let mutation of mutations) {
-    if (mutation.type === 'attributes') {
-      console.log(`Изменились атрибуты`);
-      if (el.classList.contains("js-active")) {
-        console.log(`Добавился нужный класс`);
-      }
-    }
-  }
+const mutation = new MutationObserver(function (mutations) {
+	console.log(`Сработал наблюдатель`);
+	for (let mutation of mutations) {
+		if (mutation.type === 'attributes') {
+			console.log(`Изменились атрибуты`);
+			if (el.classList.contains("js-active")) {
+				console.log(`Добавился нужный класс`);
+			}
+		}
+	}
 });
-items.forEach(el => mutation.observe(el, { attributes: true }));
+items.forEach(el => mutation.observe(el, { attributes: true }));*/
 
 /*Удаляем просроченную акцию*/
 const promotions_list = document.querySelectorAll('.promotions-list__item');
@@ -117,14 +142,19 @@ targets.forEach(target => observer.observe(target));
 /*Hummer*/
 const mobileWidthMediaQuery = window.matchMedia('(max-width: 576px)');
 function printLog(isMobileSize) {
-	if (isMobileSize && document.querySelector('#promotion-modal')) {
-		const hammertime = new Hammer(document.querySelector('.custom-modal .modal-content'), {velocity:	0.3});
-		hammertime.on('swipedown', function(ev) {
-			console.log('swipe-down');
+	if (isMobileSize) {
+		const hammertime = new Hammer(document.body, { threshold: 10 });
+		hammertime.on('swipedown', function (e) {
+			if (e.target.classList.contains('custom-modal')) {
+				$('#promotion-modal').modal('hide');
+			}
 		});
+		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 	}
 }
 printLog(mobileWidthMediaQuery.matches);
 mobileWidthMediaQuery.addEventListener('change', function (event) {
-  printLog(event.matches);
+	printLog(event.matches);
 });
+
+
