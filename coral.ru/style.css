@@ -71,12 +71,6 @@ div.notcritical>div.container div.row:nth-child(2) .rightcol {
 	margin: 0 !important
 }
 
-/* @media (max-width:1024px) {
-	[data-module=leftSiblingMenu] {
-		border-radius: 0
-	}
-} */
-
 [data-module=leftSiblingMenu] label.leftSiblingMenuTitle {
 	color: #000;
 	margin: 0;
@@ -84,12 +78,6 @@ div.notcritical>div.container div.row:nth-child(2) .rightcol {
 	font-size: 18px;
 	line-height: 1.2
 }
-
-/* @media (max-width:1024px) {
-	[data-module=leftSiblingMenu] label.leftSiblingMenuTitle {
-		display: none
-	}
-} */
 
 [data-module=leftSiblingMenu] ul.leftSiblingMenu {
 	flex-direction: column;
@@ -136,7 +124,8 @@ section.hotel-promotions>nav {
 	grid-area: Nav;
 	font-family: museosans, sans-serif;
 	position: sticky;
-	top: 10em
+	top: 10em;
+	align-self: start;
 }
 
 section.hotel-promotions>nav:after {
@@ -169,40 +158,30 @@ section.hotel-promotions>nav button:focus {
 
 section.hotel-promotions>nav .navigation {
 	z-index: 2;
-	grid-row-gap: 1em;
-	grid-column-gap: 1em;
 	background-color: #fff;
-	border-radius: 1em;
-	grid-template-columns: 1fr max-content;
+	border-radius: 8px;
 	width: 100%;
-	padding-bottom: 1em;
-	display: grid;
 	position: relative;
-	box-shadow: 0 10px 10px -8px #2123261a
 }
 
 @media (max-width:768px) {
 	section.hotel-promotions>nav .navigation {
-		grid-template-columns: 1fr
+		display: grid;
+		grid-template-columns: 1fr max-content;
+		gap: 1em;
+		padding-bottom: 1em;
 	}
 }
 
 section.hotel-promotions>nav .navigation>label {
 	border-top-left-radius: 1em;
 	border-top-right-radius: 1em;
-	grid-column: span 2;
 	justify-content: space-between;
 	align-items: center;
 	margin: 0;
-	padding: 1em;
+	padding: 16px 1em 1em 1em;
 	display: flex
 }
-
-/* @media (max-width:1024px) {
-	section.hotel-promotions>nav .navigation>label {
-		box-shadow: inset 0 18px 56px 16px #5a5a5a0d
-	}
-} */
 
 section.hotel-promotions>nav .navigation>label .icon {
 	transition: transform .3s;
@@ -219,12 +198,6 @@ section.hotel-promotions>nav .navigation>label .icon {
 	height: 32px;
 	display: none
 }
-
-/* @media (max-width:1024px) {
-	section.hotel-promotions>nav .navigation>label .icon {
-		display: block
-	}
-} */
 
 section.hotel-promotions>nav .navigation .dropdown {
 	opacity: 0;
@@ -253,14 +226,22 @@ section.hotel-promotions>nav .navigation-list-wrapper {
 }
 
 section.hotel-promotions>nav .navigation-list {
-	scroll-snap-type: x mandatory;
 	gap: 1em;
 	margin: 0;
-	padding: 0 0 0 1em;
+	padding: 8px !important;
 	list-style: none;
 	display: flex;
-	overflow: auto
+	flex-direction: column;
+
 }
+
+@media (max-width: 768px) {
+	section.hotel-promotions>nav .navigation-list {
+		scroll-snap-type: x mandatory;
+		overflow: auto;
+	}
+}
+
 
 section.hotel-promotions>nav .navigation-list::-webkit-scrollbar {
 	display: none
@@ -277,26 +258,28 @@ section.hotel-promotions>nav .navigation-list__item {
 }
 
 section.hotel-promotions>nav .navigation-list__item button {
-	color: #000;
-	cursor: pointer;
-	background-color: #fff;
 	border: none;
-	border-radius: 24px;
-	padding: .5em 2em;
+	border-radius: 8px;
+	padding: 0.5em 2em 0.5em 15px;
 	font-size: 14px;
 	font-weight: 400;
 	text-decoration: none;
 	transition: all .3s;
-	display: block
+	display: block;
+	width: 100%;
+	text-align: left;
+	background-color: #fff;
+	color: #000;
 }
 
 section.hotel-promotions>nav .navigation-list__item button:hover {
-	color: #0093d0
+	color: #0093d0;
+	cursor: pointer;
 }
 
 section.hotel-promotions>nav .navigation-list__item button.js-active {
-	color: #fff;
-	background-color: #0093d0
+	color: #0093D0;
+	background-color: #E6F4FF;
 }
 
 section.hotel-promotions>nav .navigation__btns {
@@ -363,38 +346,22 @@ section.hotel-promotions>nav .navigation__btn--right {
 }
 
 section.hotel-promotions {
-	/* grid-column-gap: 2em;
-	grid-template-columns: 25% 1fr; */
-	grid-template-columns: 0 1fr;
-	grid-template-areas: "Aside Nav" "Aside Content";
+	grid-column-gap: 16px;
+	grid-template-columns: 20% 1fr;
+	grid-template-areas:
+		"Nav Content"
+		"Nav Content";
 	align-content: start;
 	padding-inline: 8px;
 	display: grid;
 	position: relative
 }
 
-/* @media (max-width:1024px) {
-	section.hotel-promotions {
-		grid-template-columns: 1fr;
-		gap: 0
-	}
-} */
-
 @media (max-width:1006px) {
 	section.hotel-promotions {
 		padding-top: 2em
 	}
-
-	section.hotel-promotions aside>.widgetcontainer {
-		top: 2em
-	}
 }
-
-/* @media (max-width:1024px) {
-	section.hotel-promotions aside>.widgetcontainer {
-		display: none
-	}
-} */
 
 @media (max-width:1006px) {
 	section.hotel-promotions nav {
@@ -411,21 +378,22 @@ ol.breadcrumb {
 }
 
 section.hotel-promotions>article {
-	grid-area: Content
+	grid-area: Content;
+	background: #ffffff;
+	border-radius: 8px;
+	border: 1px solid #0000000f;
+	padding-top: 0.8em;
 }
 
 section.hotel-promotions>article .promotions {
 	z-index: 1;
-	background-color: #fff;
 	border-radius: 1em;
 	flex-direction: column;
-	gap: .8em;
+	gap: 0.8em;
 	width: 100%;
-	padding-top: 9.4em;
 	padding-bottom: 20px;
 	display: flex;
 	position: relative;
-	margin-top: -8.2em !important
 }
 
 section.hotel-promotions>article .promotions-list {
@@ -440,7 +408,7 @@ section.hotel-promotions>article .promotions-list {
 
 section.hotel-promotions>article .promotions-list h4 {
 	padding-left: 8px;
-	margin-block: .3em;
+	margin-block: 6px;
 }
 
 section.hotel-promotions>article .promotions-list__item {
@@ -460,11 +428,17 @@ section.hotel-promotions>article .promotions-list__item {
 	}
 }
 
+section.hotel-promotions>article .promotions-list__item .picture {
+	position: relative;
+}
+
 section.hotel-promotions>article .promotions-list__item .picture>img {
 	display: block;
 	object-fit: cover;
 	border-radius: 6px;
 	width: 100%;
+	height: 100%;
+	position: absolute;
 }
 
 @media (max-width:768px) {
@@ -538,17 +512,19 @@ section.hotel-promotions>article .content .description>p {
 	-webkit-box-orient: vertical;
 	margin-block: auto;
 	font-weight: 400;
-	overflow: hidden
+	overflow: hidden;
+	font-size: 14px;
 }
 
 section.hotel-promotions>article .content .wrapper {
 	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
+	justify-content: start;
 	gap: 8px;
+	align-items: start;
 	margin-top: 6px;
 	display: flex;
 	width: 100%;
+	flex-direction: column;
 }
 
 @media (max-width:768px) {
@@ -632,6 +608,7 @@ section.hotel-promotions>article .promotions-list__item .actions {
 	column-gap: 12px;
 	display: flex;
 	margin-top: auto;
+	margin-left: auto;
 }
 
 @media (max-width:768px) {
@@ -909,5 +886,140 @@ h1 {
 
 	.custom-modal .modal-dialog {
 		margin-block: 4vh;
+	}
+}
+
+[data-target="promotion-modal"] {
+	transition: color 0.3s ease;
+	padding: 0;
+	background: transparent;
+	border: none;
+	color: #0093d0;
+	font-size: 14px;
+}
+
+[data-target="promotion-modal"]:hover {
+	color: #e50f4f;
+	cursor: pointer;
+}
+
+[data-target="promotion-modal"]:focus {
+	outline: none;
+}
+
+.widgetcontainer {
+	margin-bottom: 0;
+}
+
+@media (max-width: 1024px) {
+	section.hotel-promotions {
+		grid-template-areas:
+		"Nav Nav"
+		"Content Content";
+	}
+
+	section.hotel-promotions>nav .navigation {
+		display: grid;
+    grid-template-columns: 1fr min-content;
+		box-shadow: 0 3px 12px #0000000d;
+		gap: 0;
+	}
+
+	section.hotel-promotions>nav .navigation-list {
+		flex-direction: row;
+		padding: 8px 8px 8px 1em !important;
+	}
+
+	section.hotel-promotions>nav .navigation>label {
+		grid-column: span 2;
+	}
+
+	section.hotel-promotions>nav .navigation-list__item button {
+		padding: 0.5em 2em;
+		text-align: center;
+		color: #000000;
+		background-color: transparent;
+		border-radius: 18px;
+	}
+
+	section.hotel-promotions>nav .navigation-list__item button.js-active {
+		color: #ffffff;
+    background-color: #0093D0;
+	}
+
+	section.hotel-promotions>article {
+		padding-top: 1.5em;
+    margin-top: -0.8em;
+	}
+
+	section.hotel-promotions>article .promotions-list__item .picture>img {
+		position: relative;
+		height: 250px;
+	}
+
+	[data-target="promotion-modal"] {
+		transition: all 0.3s ease;
+    background: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 8px;
+    padding: 0 1.5em;
+    font-size: 13px;
+    height: 2.6em;
+	}
+
+	[data-target="promotion-modal"]:hover {
+		color: #f0ab00;
+		cursor: pointer;
+		border: 1px solid #f0ab00;
+	}
+}
+
+@media (max-width: 576px) {
+	.custom-modal .modal-dialog {
+		width: auto !important;
+		max-width: unset !important;
+		margin: 0 !important;
+		transform: translate(0, 100%) !important;
+		height: 400px;
+	}
+
+	.modal.show .modal-dialog {
+		transform: translate(0,0) !important;
+	}
+
+	.custom-modal .modal-content {
+		padding-top: 48px;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		position: relative;
+	}
+
+	.custom-modal .modal-content::before {
+		content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #1a9ed5;
+    border-radius: 4px;
+	}
+
+	.custom-modal .modal-content .custom-close {
+		display: none;
+	}
+
+	.modal-open .custom-modal {
+		display: flex !important;
+		align-items: flex-end;
+		overflow: hidden !important;
+	}
+
+	.custom-modal .modal-dialog-centered {
+		min-height: unset !important;
 	}
 }

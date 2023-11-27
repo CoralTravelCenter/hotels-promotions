@@ -46,7 +46,7 @@ function cardRender(country_name, hotel) {
 		data_accommodation.textContent = el.accommodation;
 		data_departure_from.textContent = el.departure_from;
 		description.innerHTML = `<p>${el.description.text}</p>`;
-		actions.innerHTML = `<a data-lookup-destination="${el.hotel_name}" data-lookup-depth-days="${el.depth_days}">ВЫБРАТЬ ТУР</a> <button data-toggle="modal" data-target='promotion-modal'>подробнее</button>`;
+		actions.innerHTML = `<a data-lookup-destination="${el.hotel_name}" data-lookup-depth-days="${el.depth_days}">ВЫБРАТЬ ТУР</a>`;
 		const markup = card_template.cloneNode(true);
 		document.querySelector(`[data-name="${country_name}"]`).append(markup);
 	});
@@ -139,10 +139,13 @@ function enableScroll() {
 	window.scrollTo(0, scrollPosition);
 }
 
-const promotions = document.querySelector('.hotel-promotions .promotions');
+const promotions = document.querySelector('section.hotel-promotions .promotions');
+promotions.childNodes.forEach(node => {
+if (node.nodeType === 3) node.remove();
+});
 promotions.addEventListener('click', (e) => {
 	let target = e.target;
-	if (target.getAttribute('data-target') === 'promotion-modal') {
+	if (target.hasAttribute('data-target') && target.getAttribute('data-target') === 'promotion-modal') {
 		modalGenerator(target);
 		if (document.querySelector('#promotion-modal')) {
 			$('#promotion-modal').modal({ keyboard: true });
@@ -160,6 +163,5 @@ promotions.addEventListener('click', (e) => {
 		}
 	}
 });
-document.querySelector('.hotel-promotions .promotions').firstChild.remove();
 
 

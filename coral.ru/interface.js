@@ -65,6 +65,21 @@ function navScroller(e) {
 }
 navigation.addEventListener('click', navScroller);
 
+/*Mutation Observer*/
+const items = document.querySelectorAll(".navigation-list__item");
+const mutation = new MutationObserver(function(mutations) {
+  console.log(`Сработал наблюдатель`);
+  for (let mutation of mutations) {
+    if (mutation.type === 'attributes') {
+      console.log(`Изменились атрибуты`);
+      if (el.classList.contains("js-active")) {
+        console.log(`Добавился нужный класс`);
+      }
+    }
+  }
+});
+items.forEach(el => mutation.observe(el, { attributes: true }));
+
 /*Удаляем просроченную акцию*/
 const promotions_list = document.querySelectorAll('.promotions-list__item');
 
@@ -97,3 +112,19 @@ const observer = new IntersectionObserver((entries, observer) => {
 	});
 }, options);
 targets.forEach(target => observer.observe(target));
+
+
+/*Hummer*/
+const mobileWidthMediaQuery = window.matchMedia('(max-width: 576px)');
+function printLog(isMobileSize) {
+	if (isMobileSize && document.querySelector('#promotion-modal')) {
+		const hammertime = new Hammer(document.querySelector('.custom-modal .modal-content'), {velocity:	0.3});
+		hammertime.on('swipedown', function(ev) {
+			console.log('swipe-down');
+		});
+	}
+}
+printLog(mobileWidthMediaQuery.matches);
+mobileWidthMediaQuery.addEventListener('change', function (event) {
+  printLog(event.matches);
+});
