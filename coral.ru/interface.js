@@ -103,7 +103,7 @@ const options = {
 	rootMargin: "-30% 0% -30% 0%",
 	threshold: 0.5
 };
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver(entries => {
 	entries.forEach(entry => {
 		if (entry.isIntersecting) {
 			locations.forEach(location => location.classList.remove('js-active'));
