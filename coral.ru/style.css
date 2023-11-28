@@ -31,6 +31,7 @@ html {
 	scroll-padding-top: var(--scroll-padding-top);
 }
 
+
 section.hotel-promotions aside {
 	grid-area: Aside
 }
@@ -238,7 +239,7 @@ section.hotel-promotions>nav .navigation-list {
 @media (max-width: 768px) {
 	section.hotel-promotions>nav .navigation-list {
 		scroll-snap-type: x mandatory;
-		overflow: auto;
+		overflow-x: scroll;
 	}
 }
 
@@ -529,7 +530,7 @@ section.hotel-promotions>article .content .wrapper {
 
 @media (max-width:768px) {
 	section.hotel-promotions>article .content .wrapper {
-		gap: 16px;
+		gap: 12px;
 		margin-top: 16px
 	}
 }
@@ -956,7 +957,13 @@ h1 {
 		position: relative;
 		height: 250px;
 	}
+}
 
+.rating__item>svg {
+	display: block;
+}
+
+@media (max-width: 768px) {
 	[data-target="promotion-modal"] {
 		transition: all 0.3s ease;
 		background: transparent;
@@ -977,32 +984,21 @@ h1 {
 	}
 }
 
-.rating__item > svg{
-	display: block;
-}
-
 @media (max-width: 576px) {
 	.custom-modal .modal-dialog {
 		width: auto !important;
 		max-width: unset !important;
 		margin: 0 !important;
-		transform: translate(0, 100%) !important;
 		border-top-left-radius: 12px;
 		border-top-right-radius: 12px;
 		background-color: #fff;
 		position: relative;
+		flex-direction: column;
 	}
 
 	.scroll-container {
 		height: 550px;
-		padding-top: 24px;
-		overflow-y: scroll;
-		border-top-right-radius: 12px;
-		border-top-left-radius: 12px;
-	}
-
-	.modal.show .modal-dialog {
-		transform: translate(0, 0) !important;
+		overflow-y: auto;
 	}
 
 	.custom-modal .modal-content {
@@ -1010,16 +1006,25 @@ h1 {
 		border-radius: 0;
 	}
 
-	.custom-modal .modal-dialog::after {
-		content: '';
-		position: absolute;
-		top: 13px;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 80px;
-		height: 4px;
+	#promotion-modal .modal-dialog {
+		transform: translateY(25%);
+		opacity: 0;
+		transition: transform .3s ease, opacity .3s ease;
+	}
+
+	#promotion-modal.show .modal-dialog {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	[data-swipe-close]>span {
+		display: block;
+		width: 60px;
+		height: 3px;
 		background: #0093D0;
 		border-radius: 4px;
+		margin-inline: auto;
+		margin-block: 12px;
 	}
 
 	.custom-modal .modal-dialog::before {

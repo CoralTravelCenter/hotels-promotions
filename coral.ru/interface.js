@@ -5,9 +5,9 @@ const prevBtn = document.querySelector('[data-snap-slider-prev]');
 const locations = [...document.querySelectorAll('[data-location]')];
 const navigation = document.querySelector('.navigation-list');
 const navHeight = document.querySelector('.hotel-promotions nav').clientHeight;
-const browHeight = document.querySelector('[data-module="searchtabsmain"]').clientHeight;
 const height_h4 = document.querySelector('.promotions-list h4').clientHeight;
-const b_crumb = document.querySelector('.bcrumb').clientHeight;
+// const browHeight = document.querySelector('[data-module="searchtabsmain"]').clientHeight;
+// const b_crumb = document.querySelector('.bcrumb').clientHeight;
 let scrollPosition = 0;
 
 /*Блокировка скрола на iOS*/
@@ -32,20 +32,16 @@ promotions.childNodes.forEach(node => {
 });
 promotions.addEventListener('click', (e) => {
 	let target = e.target;
-	if (target.hasAttribute('data-target') && target.getAttribute('data-target') === 'promotion-modal') {
+	if (target.getAttribute('data-target') === 'promotion-modal') {
 		modalGenerator(target);
 		if (document.querySelector('#promotion-modal')) {
 			$('#promotion-modal').modal({ keyboard: true });
 			$('#promotion-modal').on('shown.bs.modal', () => {
-				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-					/*disableScroll();*/
-				}
+				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) disableScroll();
 			});
 			$('#promotion-modal').on('hidden.bs.modal', () => {
 				$('#promotion-modal').remove();
-				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-					/*enableScroll();*/
-				}
+				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) enableScroll();
 			});
 		}
 	}
@@ -67,15 +63,15 @@ window.addEventListener('resize', _.throttle(addNavigationButtons, 1000));
 nextBtn.addEventListener('click', () => {
 	snapSlides[snapSlides.length - 1].scrollIntoView({
 		behavior: 'smooth',
-		inline: 'start',
-		block: "nearest"
+		inline: 'center',
+		block: 'nearest'
 	});
 });
 prevBtn.addEventListener('click', () => {
 	snapSlides[0].scrollIntoView({
 		behavior: 'smooth',
-		inline: 'start',
-		block: "nearest"
+		inline: 'center',
+		block: 'nearest'
 	});
 });
 
@@ -85,25 +81,13 @@ function navScroller(e) {
 		const dataAttr = e.target.getAttribute('data-location');
 		let scrollPadding = navHeight + browHeight + parseInt(getComputedStyle(document.querySelector('.promotions')).paddingTop, 10) + height_h4 + b_crumb;
 		document.documentElement.style.setProperty('--scroll-padding-top', scrollPadding + "px");
-		document.querySelector(`[data-name=${dataAttr}]`).scrollIntoView(true);
+		document.querySelector(`[data-name=${dataAttr}]`).scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		});
 	}
 }
 navigation.addEventListener('click', navScroller);
-
-/*Mutation Observer
-const items = document.querySelectorAll(".navigation-list__item");
-const mutation = new MutationObserver(function (mutations) {
-	console.log(`Сработал наблюдатель`);
-	for (let mutation of mutations) {
-		if (mutation.type === 'attributes') {
-			console.log(`Изменились атрибуты`);
-			if (el.classList.contains("js-active")) {
-				console.log(`Добавился нужный класс`);
-			}
-		}
-	}
-});
-items.forEach(el => mutation.observe(el, { attributes: true }));*/
 
 /*Удаляем просроченную акцию*/
 const promotions_list = document.querySelectorAll('.promotions-list__item');
@@ -139,22 +123,40 @@ const observer = new IntersectionObserver(entries => {
 targets.forEach(target => observer.observe(target));
 
 
-/*Hummer*/
+/*Touch gesters*/
 const mobileWidthMediaQuery = window.matchMedia('(max-width: 576px)');
-function printLog(isMobileSize) {
+let swipe_target;
+function mobileChecker(isMobileSize) {
 	if (isMobileSize) {
-		const hammertime = new Hammer(document.body, { threshold: 10 });
-		hammertime.on('swipedown', function (e) {
+		document.body.addEventListener('swiped-down', function (e) {
 			if (e.target.classList.contains('custom-modal')) {
 				$('#promotion-modal').modal('hide');
+				$('#promotion-modal').on('hidden.bs.modal', () => {
+					$('#promotion-modal').remove();
+					if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) enableScroll();
+				});
 			}
 		});
-		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+		/*Mutation Observer*/
+		const items = document.querySelectorAll(".navigation-list__item button");
+		function animationObserver(el) {
+			el.addEventListener('transitionend', () => {
+				if (el.classList.contains('js-active')) {
+					el.scrollIntoView({
+						behavior: 'smooth',
+						inline: 'center',
+						block: 'nearest'
+					});
+				}
+			});
+		}
+		items.forEach(el => animationObserver(el));
 	}
 }
-printLog(mobileWidthMediaQuery.matches);
-mobileWidthMediaQuery.addEventListener('change', function (event) {
-	printLog(event.matches);
+mobileChecker(mobileWidthMediaQuery.matches);
+mobileWidthMediaQuery.addEventListener('change', function (e) {
+	mobileChecker(e.matches);
 });
 
 
