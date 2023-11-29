@@ -7,29 +7,8 @@ const locations = [...document.querySelectorAll('[data-location]')];
 const navigation = document.querySelector('.navigation-list');
 const navHeight = document.querySelector('.hotel-promotions nav').clientHeight;
 const height_h4 = document.querySelector('.promotions-list h4').clientHeight;
-// const browHeight = document.querySelector('[data-module="searchtabsmain"]').clientHeight;
-// const b_crumb = document.querySelector('.bcrumb').clientHeight;
-let scrollPosition = 0;
-
-/*Блокирвка скрола на iOS*/
-const disablePageScroll = () => {
-	if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-		scrollPosition = window.pageYOffset;
-		document.body.style.overflow = 'hidden';
-		document.body.style.position = 'fixed';
-		document.body.style.top = `-${scrollPosition}px`;
-		document.body.style.width = '100%';
-	}
-};
-const enablePageScroll = () => {
-	if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-		document.body.style.removeProperty('overflow');
-		document.body.style.removeProperty('position');
-		document.body.style.removeProperty('top');
-		document.body.style.removeProperty('width');
-		window.scrollTo(0, scrollPosition);
-	}
-};
+const browHeight = document.querySelector('[data-module="searchtabsmain"]').clientHeight;
+const b_crumb = document.querySelector('.bcrumb').clientHeight;
 
 /*Рендер модального окна*/
 const modalRender = () => {
@@ -38,35 +17,27 @@ const modalRender = () => {
 		if (node.nodeType === 3) node.remove();
 	});
 	promotions.addEventListener('click', (e) => {
-		let target = e.target;
+		const target = e.target;
 		if (target.getAttribute('data-target') === 'promotion-modal') {
 			modalGenerator(target);
 			if (document.querySelector('#promotion-modal')) {
 				$('#promotion-modal').modal({ keyboard: true });
 				$('#promotion-modal').on('shown.bs.modal', () => {
-					if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) disableScroll();
+					if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+						bodyScrollLock.disableBodyScroll();
+					}
 				});
 				$('#promotion-modal').on('hidden.bs.modal', () => {
+					if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+						bodyScrollLock.enableBodyScroll();
+					}
 					$('#promotion-modal').remove();
-					if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) enableScroll();
 				});
 			}
 		}
 	});
 };
 modalRender();
-
-/*Добавляем кнопки в навигацию когда появляется горизонтальный скролл*/
-const renderNavigationButtons = () => {
-	if (snapSlider.clientWidth < snapSlider.scrollWidth) {
-		nextBtn.style.display = 'block';
-		prevBtn.style.display = 'block';
-	} else {
-		nextBtn.style.display = 'none';
-		prevBtn.style.display = 'none';
-	}
-};
-window.addEventListener('resize', _.throttle(renderNavigationButtons, 500));
 
 /*Логика кнопок навигации*/
 const navigationButtonsClicker = () => {
@@ -144,12 +115,14 @@ navigationObserver();
 
 /*Скрываем модальное окно по свайпу вниз*/
 const createTouchEvent = () => {
-	document.body.addEventListener('swiped-down', function (e) {
-		if (e.target.classList.contains('custom-modal')) {
+	document.body.addEventListener('swiped-down', (e) => {
+		if (document.querySelector('.modal-header').contains(e.target)) {
 			$('#promotion-modal').modal('hide');
 			$('#promotion-modal').on('hidden.bs.modal', () => {
+				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+					bodyScrollLock.enableBodyScroll();
+				}
 				$('#promotion-modal').remove();
-				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) enableScroll();
 			});
 		}
 	});
@@ -163,7 +136,7 @@ const mutationObserver = () => {
 		el.addEventListener('transitionend', () => {
 			if (el.classList.contains('js-active')) {
 				scroll_container.scrollTo({ left: el.offsetLeft, behavior: 'smooth' });
-				// scroll_container.scrollTo({ right: el.offsetRight, behavior: 'smooth'});
+				/*scroll_container.scrollTo({ right: el.offsetRight, behavior: 'smooth'});*/
 			}
 		});
 	}
@@ -183,4 +156,20 @@ mobileWidthMediaQuery.addEventListener('change', (e) => {
 	mobileChecker(e.matches);
 });
 
-
+/*Рендерим кнопки навигации на устройствах < 1024 но > 768*/
+const tabletWidthMediaQuery = window.matchMedia('(min-width: 768px) and (max-width: 1024px)');
+function tabletChecker(isTablet) {
+	if (isTablet) {
+		if (snapSlider.clientWidth < snapSlider.scrollWidth) {
+			nextBtn.style.display = 'block';
+			prevBtn.style.display = 'block';
+		} else {
+			nextBtn.style.display = 'none';
+			prevBtn.style.display = 'none';
+		}
+	}
+}
+tabletChecker(tabletWidthMediaQuery.matches);
+tabletWidthMediaQuery.addEventListener('change', (e) => {
+	tabletChecker(e.matches);
+});

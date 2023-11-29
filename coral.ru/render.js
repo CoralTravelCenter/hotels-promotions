@@ -69,7 +69,7 @@ PROMOTION_SETTINGS.filter(country => {
 
 /*Рендерим модалку с описанием акции*/
 function modalGenerator(target) {
-	let id = parseInt(target.closest('[data-hotel-id]').dataset.hotelId);
+	const id = parseInt(target.closest('[data-hotel-id]').dataset.hotelId);
 	PROMOTION_SETTINGS.filter(country => {
 		country.hotels.filter(hotel => {
 			if (hotel.hotel_id === id) {

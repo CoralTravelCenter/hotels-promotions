@@ -170,7 +170,6 @@ section.hotel-promotions>nav .navigation {
 		display: grid;
 		grid-template-columns: 1fr max-content;
 		gap: 1em;
-		padding-bottom: 1em;
 	}
 }
 
@@ -322,7 +321,8 @@ section.hotel-promotions>nav .navigation__btn--left {
 	background-size: 50%;
 	background-attachment: scroll, scroll;
 	background-origin: padding-box, padding-box;
-	background-clip: border-box, border-box
+	background-clip: border-box, border-box;
+	display: none;
 }
 
 section.hotel-promotions>nav .navigation__btn--right {
@@ -333,7 +333,8 @@ section.hotel-promotions>nav .navigation__btn--right {
 	background-size: 50%;
 	background-attachment: scroll, scroll;
 	background-origin: padding-box, padding-box;
-	background-clip: border-box, border-box
+	background-clip: border-box, border-box;
+	display: none;
 }
 
 #link-drop:checked~.dropdown {
@@ -997,18 +998,30 @@ h1 {
 	}
 
 	.scroll-container {
-		height: 550px;
-		overflow-y: auto;
+		overflow-y: scroll;
+		height: calc(80vh - 25%);
+		padding-inline: min(5%, 24px);
+		padding-bottom: 1em;
+		padding-top: 0;
 	}
 
 	.custom-modal .modal-content {
-		padding-top: 18px;
-		border-radius: 0;
+		padding: 0;
+	}
+
+	.custom-modal .modal-header {
+		padding: min(5%, 24px);
+		padding-top: 0;
+	}
+
+	.custom-modal .modal-body {
+		padding-top: 0;
 	}
 
 	#promotion-modal .modal-dialog {
 		transform: translateY(25%);
 		opacity: 0;
+		height: 80vh;
 		transition: transform .3s ease, opacity .3s ease;
 	}
 
