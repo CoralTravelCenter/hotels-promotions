@@ -118,7 +118,7 @@ function modalGenerator(target) {
 				}
 
 				const markup = modal_template.cloneNode(true);
-				document.body.append(markup);
+				document.querySelector('#modal-container').append(markup);
 			}
 		});
 	});

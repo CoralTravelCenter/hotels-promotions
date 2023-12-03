@@ -31,6 +31,10 @@ html {
 	scroll-padding-top: var(--scroll-padding-top);
 }
 
+body .oti-content-typography ul {
+	list-style: unset !important;
+  padding-left: unset !important;
+}
 
 section.hotel-promotions aside {
 	grid-area: Aside
@@ -733,7 +737,7 @@ section.hotel-promotions>article .promotions-list__item .actions button {
 .custom-modal .modal-header .rating {
 	gap: 6px;
 	margin: 0 0 6px 0;
-	padding: 0;
+	padding: 0 !important;
 	list-style: none;
 	display: flex
 }
@@ -1001,8 +1005,7 @@ h1 {
 		overflow-y: scroll;
 		height: calc(80vh - 25%);
 		padding-inline: min(5%, 24px);
-		padding-bottom: 1em;
-		padding-top: 0;
+		padding-block: 1em;
 	}
 
 	.custom-modal .modal-content {
@@ -1010,8 +1013,7 @@ h1 {
 	}
 
 	.custom-modal .modal-header {
-		padding: min(5%, 24px);
-		padding-top: 0;
+		padding-inline: min(5%, 24px);
 	}
 
 	.custom-modal .modal-body {

@@ -9,9 +9,10 @@ const navHeight = document.querySelector('.hotel-promotions nav').clientHeight;
 const height_h4 = document.querySelector('.promotions-list h4').clientHeight;
 const browHeight = document.querySelector('[data-module="searchtabsmain"]').clientHeight;
 const b_crumb = document.querySelector('.bcrumb').clientHeight;
+const iOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-/*Рендер модального окна*/
-const modalRender = () => {
+/*Передаем данные в функцию рендера модального окна*/
+const modalRender = (createTouchEvent) => {
 	const promotions = document.querySelector('section.hotel-promotions .promotions');
 	promotions.childNodes.forEach(node => {
 		if (node.nodeType === 3) node.remove();
@@ -21,23 +22,20 @@ const modalRender = () => {
 		if (target.getAttribute('data-target') === 'promotion-modal') {
 			modalGenerator(target);
 			if (document.querySelector('#promotion-modal')) {
+				const MODAL_CONTAINER = document.querySelector('#promotion-modal');
 				$('#promotion-modal').modal({ keyboard: true });
 				$('#promotion-modal').on('shown.bs.modal', () => {
-					if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-						bodyScrollLock.disableBodyScroll();
-					}
+					if (iOS) bodyScrollLock.disableBodyScroll(MODAL_CONTAINER);
 				});
 				$('#promotion-modal').on('hidden.bs.modal', () => {
-					if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-						bodyScrollLock.enableBodyScroll();
-					}
+					if (iOS)	bodyScrollLock.enableBodyScroll(MODAL_CONTAINER);
 					$('#promotion-modal').remove();
 				});
+				if (createTouchEvent) createTouchEvent();
 			}
 		}
 	});
 };
-modalRender();
 
 /*Логика кнопок навигации*/
 const navigationButtonsClicker = () => {
@@ -116,14 +114,9 @@ navigationObserver();
 /*Скрываем модальное окно по свайпу вниз*/
 const createTouchEvent = () => {
 	document.body.addEventListener('swiped-down', (e) => {
-		if (document.querySelector('.modal-header').contains(e.target)) {
+		const modal_header = document.querySelector('.modal-header');
+		if (modal_header.contains(e.target)) {
 			$('#promotion-modal').modal('hide');
-			$('#promotion-modal').on('hidden.bs.modal', () => {
-				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-					bodyScrollLock.enableBodyScroll();
-				}
-				$('#promotion-modal').remove();
-			});
 		}
 	});
 };
@@ -143,12 +136,14 @@ const mutationObserver = () => {
 	items.forEach(el => animationObserver(el));
 };
 
-/*Запускаем неоходимый код на телефонах*/
+/*Запускаем необходимый код на телефонах*/
 const mobileWidthMediaQuery = window.matchMedia('(max-width: 576px)');
 function mobileChecker(isMobileSize) {
 	if (isMobileSize) {
-		createTouchEvent();
+		modalRender(createTouchEvent);
 		mutationObserver();
+	} else {
+		modalRender();
 	}
 }
 mobileChecker(mobileWidthMediaQuery.matches);
