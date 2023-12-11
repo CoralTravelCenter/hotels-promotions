@@ -165,7 +165,7 @@ section.hotel-promotions>nav .navigation {
 	position: relative;
 }
 
-@media (max-width:768px) {
+@media (max-width:1024px) {
 	section.hotel-promotions>nav .navigation {
 		display: grid;
 		grid-template-columns: 1fr max-content;
@@ -181,6 +181,12 @@ section.hotel-promotions>nav .navigation>label {
 	margin: 0;
 	padding: 16px 1em 1em 1em;
 	display: flex
+}
+
+@media (max-width:768px) {
+	section.hotel-promotions>nav .navigation>label {
+		padding: 1em;
+	}
 }
 
 section.hotel-promotions>nav .navigation>label .icon {
@@ -929,7 +935,7 @@ h1 {
 
 	section.hotel-promotions>nav .navigation-list {
 		flex-direction: row;
-		padding: 8px 8px 8px 1em !important;
+		padding: 8px 1em 1em 1em !important;
 	}
 
 	section.hotel-promotions>nav .navigation>label {
