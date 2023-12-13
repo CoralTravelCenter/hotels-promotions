@@ -5,10 +5,10 @@ const nextBtn = document.querySelector('[data-snap-slider-next]');
 const prevBtn = document.querySelector('[data-snap-slider-prev]');
 const locations = [...document.querySelectorAll('[data-location]')];
 const navigation = document.querySelector('.navigation-list');
-const navHeight = document.querySelector('.hotel-promotions nav').clientHeight;
-const height_h4 = document.querySelector('.promotions-list h4').clientHeight;
-const browHeight = document.querySelector('[data-module="searchtabsmain"]').clientHeight;
-const b_crumb = document.querySelector('.bcrumb').clientHeight;
+// const navHeight = document.querySelector('.hotel-promotions nav').clientHeight;
+// const height_h4 = document.querySelector('.promotions-list h4').clientHeight;
+// const browHeight = document.querySelector('[data-module="searchtabsmain"]').clientHeight;
+// const b_crumb = document.querySelector('.bcrumb').clientHeight;
 const iOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 const disableScroll = function () {
@@ -35,7 +35,8 @@ const modalRender = (createTouchEvent) => {
 	promotions.addEventListener('click', (e) => {
 		const target = e.target;
 		if (target.getAttribute('data-target') === 'promotion-modal') {
-			modalGenerator(target);
+			console.log(target.closest('[data-hotel-id]'));
+			console.log(getKeyByValue(PROMOTION_SETTINGS, target.closest('[data-hotel-id]').getAttribute('data-hotel-id')));
 			if (document.querySelector('#promotion-modal')) {
 				$('#promotion-modal').modal('show', { keyboard: true });
 				$('#promotion-modal').on('shown.bs.modal', () => {
@@ -71,19 +72,19 @@ const navigationButtonsClicker = () => {
 navigationButtonsClicker();
 
 /*Навигация*/
-const navScrollHandler = (e) => {
-	if (e.target.hasAttribute('data-location')) {
-		const target = e.target.getAttribute('data-location');
-		const scrollPadding = navHeight + browHeight + parseInt(getComputedStyle(document.querySelector('.promotions')).paddingTop, 10) + height_h4 + b_crumb;
-		document.documentElement.style.setProperty('--scroll-padding-top', scrollPadding + "px");
-		document.querySelector(`[data-name=${target}]`).scrollIntoView({
-			behavior: 'smooth',
-			block: 'start',
-			inline: 'nearest'
-		});
-	}
-};
-navigation.addEventListener('click', navScrollHandler);
+// const navScrollHandler = (e) => {
+// 	if (e.target.hasAttribute('data-location')) {
+// 		const target = e.target.getAttribute('data-location');
+// 		const scrollPadding = navHeight + browHeight + parseInt(getComputedStyle(document.querySelector('.promotions')).paddingTop, 10) + height_h4 + b_crumb;
+// 		document.documentElement.style.setProperty('--scroll-padding-top', scrollPadding + "px");
+// 		document.querySelector(`[data-name=${target}]`).scrollIntoView({
+// 			behavior: 'smooth',
+// 			block: 'start',
+// 			inline: 'nearest'
+// 		});
+// 	}
+// };
+// navigation.addEventListener('click', navScrollHandler);
 
 /*Удаляем просроченную акцию*/
 const expiredPromotionRemove = () => {

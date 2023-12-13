@@ -3,7 +3,6 @@ const PROMOTION_SETTINGS = [
 		name: "ОАЭ",
 		hotels: [
 			{
-				hotel_id: 1,
 				visual: "https://content.coral.ru//resize/800x600/media/image/31/46458/637708480219178761.jpg",
 				rating: 4,
 				hotel_name: "THE FIRST COLLECTION JUMEIRAH VILLAGE CIRCLE",
@@ -30,13 +29,12 @@ const PROMOTION_SETTINGS = [
 		name: "Египет",
 		hotels: [
 			{
-				hotel_id: 2,
 				visual: "https://content.coral.ru//resize/800x600/media/image/12/28415/637184181184862254.jpg",
 				rating: 5,
 				hotel_name: "ROYAL REGENCY CLUB",
 				location: "Шарм-эш-Шейх (Sharm El Sheikh), Набк Бей (Nabq Bay)",
 				description: {
-					text: "Акция от отеля «Черная Пятница»:",
+					text: "Акция от отеля «Черная Пятница»",
 					list: [
 						"Корзина с фруктами и мини-бар (безалкогольные напитки) - 1 раз за весь период проживания",
 						"Ранняя регистрация заезда (при наличии возможности в отеле)",
@@ -58,13 +56,12 @@ const PROMOTION_SETTINGS = [
 				depth_days: 14
 			},
 			{
-				hotel_id: 3,
 				visual: "https://content.coral.ru//resize/800x600/media/image/12/36111/637643882370313850.JPG",
 				rating: 5,
 				hotel_name: "ROMANCE REGENCY CLUB ADULTS ONLY",
 				location: "Шарм-эш-Шейх (Sharm El Sheikh), Набк Бей (Nabq Bay)",
 				description: {
-					text: "Акция от отеля «Черная Пятница»:",
+					text: "Акция от отеля «Черная Пятница»",
 					list: [
 						"Корзина с фруктами и мини-бар (безалкогольные напитки) - 1 раз за весь период проживания",
 						"Ранняя регистрация заезда (при наличии возможности в отеле)",
@@ -87,13 +84,12 @@ const PROMOTION_SETTINGS = [
 				depth_days: 14
 			},
 			{
-				hotel_id: 4,
 				visual: "https://content.coral.ru//resize/800x600/media/image/12/3916/637630015618741281.jpg",
 				rating: 5,
 				hotel_name: "REGENCY PLAZA AQUA PARK & SPA RESORT",
 				location: "Шарм-эш-Шейх (Sharm El Sheikh), Набк Бей (Nabq Bay)",
 				description: {
-					text: "Акция от отеля «Черная Пятница»:",
+					text: "Акция от отеля «Черная Пятница»",
 					list: [
 						"Раннее заселение (при наличии возможности в отеле)",
 						"Неограниченный доступ в Восточный, Рыбный и Итальянский рестораны а ля карт (по предварительному заказу)",
@@ -113,7 +109,6 @@ const PROMOTION_SETTINGS = [
 				depth_days: 14
 			},
 			{
-				hotel_id: 5,
 				visual: "https://content.coral.ru//resize/800x600/media/image/12/9270/636751320657246517.jpg",
 				rating: 5,
 				hotel_name: "BARON PALACE RESORT SAHL HASHEESH",
@@ -134,7 +129,6 @@ const PROMOTION_SETTINGS = [
 				depth_days: 14
 			},
 			{
-				hotel_id: 6,
 				visual: "https://content.coral.ru//resize/800x600/media/image/12/8871/637795739711641789.jpg",
 				rating: 5,
 				hotel_name: "MOVENPICK WATERPARK RESORT & SPA SOMA BAY",
@@ -168,7 +162,6 @@ const PROMOTION_SETTINGS = [
 		name: "Таиланд",
 		hotels: [
 			{
-				hotel_id: 7,
 				visual: "https://content.coral.ru//resize/800x600/media/image/33/2262/637720711089614767.jpg",
 				rating: 5,
 				hotel_name: "CENTARA RESERVE SAMUI (ex.CENTARA GRAND BEACH RESORT SAMUI)",
@@ -194,7 +187,6 @@ const PROMOTION_SETTINGS = [
 		name: "Вьетнам",
 		hotels: [
 			{
-				hotel_id: 8,
 				visual: "https://content.coral.ru//resize/800x600/media/image/41/11814/636578436124558507.jpg",
 				rating: 5,
 				hotel_name: "VINPEARL RESORT & SPA PHU QUOC",
@@ -217,7 +209,6 @@ const PROMOTION_SETTINGS = [
 				depth_days: 14
 			},
 			{
-				hotel_id: 9,
 				visual: "https://content.coral.ru//resize/800x600/media/image/41/23786/636579228966823319.jpg",
 				rating: 5,
 				hotel_name: "VINPEARL WONDERWORLD PHU QUOC",
