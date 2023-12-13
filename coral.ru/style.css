@@ -24,16 +24,27 @@
 
 :root {
 	--scroll-padding-top: 400px;
+	--modal-height: 75vh;
 }
 
 html {
-	scroll-behavior: smooth;
+	scroll-behavior: auto;
 	scroll-padding-top: var(--scroll-padding-top);
 }
 
 body .oti-content-typography ul {
 	list-style: unset !important;
   padding-left: unset !important;
+}
+
+.disable-scroll {
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
 }
 
 section.hotel-promotions aside {
@@ -125,7 +136,7 @@ div.notcritical>div.container div.row:nth-child(2) .rightcol {
 }
 
 section.hotel-promotions>nav {
-	z-index: 2;
+	z-index: 4;
 	grid-area: Nav;
 	font-family: museosans, sans-serif;
 	position: sticky;
@@ -167,6 +178,7 @@ section.hotel-promotions>nav .navigation {
 	border-radius: 8px;
 	width: 100%;
 	position: relative;
+	border: 1px solid #0000000f;
 }
 
 @media (max-width:1024px) {
@@ -242,7 +254,7 @@ section.hotel-promotions>nav .navigation-list {
 	list-style: none;
 	display: flex;
 	flex-direction: column;
-
+	scroll-behavior: smooth;
 }
 
 @media (max-width: 768px) {
@@ -371,7 +383,7 @@ section.hotel-promotions {
 
 @media (max-width:1006px) {
 	section.hotel-promotions {
-		padding-top: 2em
+		padding-top: 1em
 	}
 }
 
@@ -463,7 +475,7 @@ section.hotel-promotions>article .rating {
 	gap: 6px;
 	margin: 0 0 8px;
 	padding: 0 !important;
-	list-style: none;
+	list-style: none !important;
 	display: flex;
 }
 
@@ -1009,7 +1021,7 @@ h1 {
 
 	.scroll-container {
 		overflow-y: scroll;
-		height: calc(80vh - 25%);
+		height: calc(var(--modal-height) - 38%);
 		padding-inline: min(5%, 24px);
 		padding-block: 1em;
 	}
@@ -1029,13 +1041,23 @@ h1 {
 	#promotion-modal .modal-dialog {
 		transform: translateY(25%);
 		opacity: 0;
-		height: 80vh;
+		height: var(--modal-height);
 		transition: transform .3s ease, opacity .3s ease;
 	}
 
 	#promotion-modal.show .modal-dialog {
 		transform: translateY(0);
 		opacity: 1;
+	}
+
+	[data-swipe-close] {
+		display: none;
+	}
+
+	@media (max-width: 768px) {
+		[data-swipe-close] {
+			display: block;
+		}	
 	}
 
 	[data-swipe-close]>span {
@@ -1064,5 +1086,14 @@ h1 {
 
 	.custom-modal .modal-dialog-centered {
 		min-height: unset !important;
+	}
+}
+
+@media (max-width: 576px) {
+	.custom-modal .modal-header h5 {
+		font-size: 20px
+	}
+	.custom-modal .modal-header ul.info li.info__item .info__date {
+		font-size: 12px;
 	}
 }

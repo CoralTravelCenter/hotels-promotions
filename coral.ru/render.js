@@ -9,7 +9,7 @@ function navigationRender(country) {
 	const data_navigation = document.querySelector('[data-nav]');
 	button.setAttribute('data-location', country_name);
 	button.textContent = country_name;
-	if (country.country_id !== undefined) {
+	if (country[0]) {
 		button.classList.add('js-active');
 	} else {
 		button.classList.remove('js-active');
@@ -36,7 +36,6 @@ function cardRender(country_name, hotel) {
 			</svg>
 		</li>`;
 	hotel.forEach(el => {
-		item.dataset.hotelId = el.hotel_id;
 		item.setAttribute('promotion-end', el.promotion_end);
 		rating.innerHTML = star.repeat(el.rating);
 		img.src = el.visual;
@@ -61,7 +60,7 @@ function promotionsRender(country_name) {
 	document.querySelector('.hotel-promotions .promotions').append(markup);
 }
 
-PROMOTION_SETTINGS.filter(country => {
+PROMOTION_SETTINGS.forEach(country => {
 	navigationRender(country);
 	promotionsRender(country.name);
 	cardRender(country.name, country.hotels);
@@ -69,7 +68,6 @@ PROMOTION_SETTINGS.filter(country => {
 
 /*Рендерим модалку с описанием акции*/
 function modalGenerator(target) {
-	const id = parseInt(target.closest('[data-hotel-id]').dataset.hotelId);
 	PROMOTION_SETTINGS.filter(country => {
 		country.hotels.filter(hotel => {
 			if (hotel.hotel_id === id) {
