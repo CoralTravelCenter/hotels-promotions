@@ -34,7 +34,7 @@ html {
 
 body .oti-content-typography ul {
 	list-style: unset !important;
-  padding-left: unset !important;
+	padding-left: unset !important;
 }
 
 .disable-scroll {
@@ -74,68 +74,7 @@ div.notcritical>div.container div.row:nth-child(2) .rightcol {
 	max-width: unset
 }
 
-[data-module=leftSiblingMenu] {
-	background-color: #fff;
-	border-radius: 12px;
-	flex-direction: column;
-	gap: 8px;
-	padding: 1em 8px 8px;
-	font-family: museosans, sans-serif;
-	display: flex;
-	position: sticky;
-	top: 10em;
-	margin: 0 !important
-}
-
-[data-module=leftSiblingMenu] label.leftSiblingMenuTitle {
-	color: #000;
-	margin: 0;
-	padding-left: 24px;
-	font-size: 18px;
-	line-height: 1.2
-}
-
-[data-module=leftSiblingMenu] ul.leftSiblingMenu {
-	flex-direction: column;
-	gap: 8px;
-	margin: 0;
-	display: flex
-}
-
-[data-module=leftSiblingMenu] ul.leftSiblingMenu .minus:before,
-[data-module=leftSiblingMenu] ul.leftSiblingMenu div.slide:before {
-	display: none
-}
-
-[data-module=leftSiblingMenu] ul.leftSiblingMenu li {
-	padding: 0
-}
-
-[data-module=leftSiblingMenu] ul.leftSiblingMenu li a {
-	color: #000;
-	border-radius: 8px;
-	width: 100%;
-	padding: 9px 24px;
-	font-size: 14px;
-	line-height: 1.5;
-	transition: all .3s
-}
-
-[data-module=leftSiblingMenu] ul.leftSiblingMenu li a:hover {
-	color: #0093d0
-}
-
-[data-module=leftSiblingMenu] li.selected span {
-	border-radius: 8px;
-	width: 100%;
-	font-size: 14px;
-	line-height: 1.5;
-	color: #0093d0 !important;
-	background: #e6f4ff !important;
-	padding: 9px 24px !important
-}
-
-section.hotel-promotions>nav {
+section.hotel-promotions .hotel-promotions__navigation {
 	z-index: 4;
 	grid-area: Nav;
 	font-family: museosans, sans-serif;
@@ -144,7 +83,7 @@ section.hotel-promotions>nav {
 	align-self: start;
 }
 
-section.hotel-promotions>nav:after {
+section.hotel-promotions .hotel-promotions__navigation:after {
 	content: "";
 	background: #f1f7fc;
 	width: 100%;
@@ -161,15 +100,9 @@ section.hotel-promotions h4 {
 	font-size: 18px
 }
 
-section.hotel-promotions>nav .promotions h4 {
+section.hotel-promotions .hotel-promotions__navigation promotion-list h4 {
 	margin: 0;
 	padding-left: 12px
-}
-
-section.hotel-promotions>nav a:focus,
-section.hotel-promotions>nav button:focus {
-	cursor: pointer;
-	outline: none
 }
 
 section.hotel-promotions>nav .navigation {
@@ -263,7 +196,6 @@ section.hotel-promotions>nav .navigation-list {
 		overflow-x: scroll;
 	}
 }
-
 
 section.hotel-promotions>nav .navigation-list::-webkit-scrollbar {
 	display: none
@@ -372,9 +304,7 @@ section.hotel-promotions>nav .navigation__btn--right {
 section.hotel-promotions {
 	grid-column-gap: 16px;
 	grid-template-columns: 20% 1fr;
-	grid-template-areas:
-		"Nav Content"
-		"Nav Content";
+	grid-template-areas: "Nav Content" "Nav Content";
 	align-content: start;
 	padding-inline: 8px;
 	display: grid;
@@ -937,9 +867,7 @@ h1 {
 
 @media (max-width: 1024px) {
 	section.hotel-promotions {
-		grid-template-areas:
-			"Nav Nav"
-			"Content Content";
+		grid-template-areas: "Nav Nav" "Content Content";
 	}
 
 	section.hotel-promotions>nav .navigation {
@@ -1057,7 +985,7 @@ h1 {
 	@media (max-width: 768px) {
 		[data-swipe-close] {
 			display: block;
-		}	
+		}
 	}
 
 	[data-swipe-close]>span {
@@ -1086,14 +1014,5 @@ h1 {
 
 	.custom-modal .modal-dialog-centered {
 		min-height: unset !important;
-	}
-}
-
-@media (max-width: 576px) {
-	.custom-modal .modal-header h5 {
-		font-size: 20px
-	}
-	.custom-modal .modal-header ul.info li.info__item .info__date {
-		font-size: 12px;
 	}
 }
